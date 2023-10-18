@@ -2,7 +2,7 @@
 
 namespace Assets.NotTwice.Tools.Runtime.ScriptableObjects.Variables.Typed
 {
-	[CreateAssetMenu(fileName = nameof(Int32Variable), menuName = "NotTwice/Tools/Variables")]
+	[CreateAssetMenu(fileName = "Int32Variable", menuName = "NotTwice/Tools/Variables/Int32Variable")]
 	public class Int32Variable : ScriptableVariable<int>
 	{
 	}
