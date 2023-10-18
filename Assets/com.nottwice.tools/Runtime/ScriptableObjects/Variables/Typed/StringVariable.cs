@@ -2,7 +2,7 @@
 
 namespace Assets.NotTwice.Tools.Runtime.ScriptableObjects.Variables.Typed
 {
-	[CreateAssetMenu(menuName = "NotTwice/Tools/Variables")]
+	[CreateAssetMenu(fileName = nameof(StringVariable), menuName = "NotTwice/Tools/Variables")]
 	public class StringVariable : ScriptableVariable<string>
 	{
 	}
