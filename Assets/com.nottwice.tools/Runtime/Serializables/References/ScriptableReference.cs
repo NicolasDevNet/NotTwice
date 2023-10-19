@@ -8,7 +8,6 @@ namespace Assets.NotTwice.Tools.Runtime.Serializables.References
 	/// Cet objet n'est pas à utilisé directement, il est à associer avec un membre enfant déclarant le type générique.
 	/// Cet objet permet de définir une référence de valeur.
 	/// </summary>
-	[Serializable]
 	public abstract class ScriptableReference<T>
 	{
 		public bool UseConstant = true;
