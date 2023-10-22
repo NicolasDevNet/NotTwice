@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.neuecc.unirx": {
+      "version": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "28808fdde715dd7a2ef3adfcfe929114fe73403e"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
