@@ -1,0 +1,24 @@
+{
+  "name": "com.nottwice.events",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "displayName": "NotTwice Events",
+  "description": "NotTwice Events fournit des composants et objets scriptables pour faciliter la gestion des évènements dans Unity",
+  "keywords": [
+    "components",
+    "scriptableobjects",
+    "events",
+    "reactives"
+  ],
+  "author": {
+    "name": "NotTwice, NFO."
+  },
+  "dependencies": {
+	  "com.neuecc.unirx": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
+	  "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
+	  "com.nottwice.serializables": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.serializables",
+	  "com.nottwice.application": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.application",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+  }
+}

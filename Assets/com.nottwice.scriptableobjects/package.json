@@ -1,0 +1,19 @@
+{
+  "name": "com.nottwice.scriptableobjects",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "displayName": "NotTwice Scriptable Objects",
+  "description": "NotTwice Scriptable Objects fournit des objets scriptables génériques pour faciliter le développement en équipe",
+  "keywords": [
+    "components",
+    "scriptableobjects",
+    "reactives"
+  ],
+  "author": {
+    "name": "NotTwice, NFO."
+  },
+  "dependencies": {
+	  "com.neuecc.unirx": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx"
+  }
+}

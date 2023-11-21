@@ -1,0 +1,16 @@
+{
+    "name": "NotTwice.Audio.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f448c07045744654ea7b2d67db1b159c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

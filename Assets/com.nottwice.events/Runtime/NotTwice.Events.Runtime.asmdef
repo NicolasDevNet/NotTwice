@@ -1,0 +1,20 @@
+{
+    "name": "NotTwice.Events.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b6e89c0d8a5f6d442a1cd2efa206e1be",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:ff44b7e03797677459d0634f48545281",
+        "GUID:f448c07045744654ea7b2d67db1b159c",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

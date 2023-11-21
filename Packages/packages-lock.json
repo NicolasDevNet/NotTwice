@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.dbrizov.naughtyattributes": {
+      "version": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8a8fa5a9659a6d63f196391c71e06c4286c8acd7"
+    },
+    "com.demigiant.dotween": {
+      "version": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.demigiant.dotween",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "28808fdde715dd7a2ef3adfcfe929114fe73403e"
+    },
     "com.neuecc.unirx": {
       "version": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
       "depth": 0,
@@ -165,6 +179,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.textmeshpro": {
+      "version": "3.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.timeline": {
       "version": "1.6.5",
       "depth": 0,
@@ -195,6 +218,22 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "nuget.castle-core": {
+      "version": "2.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "nuget.moq": {
+      "version": "2.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "nuget.castle-core": "2.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

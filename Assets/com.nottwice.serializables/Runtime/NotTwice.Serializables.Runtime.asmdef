@@ -1,0 +1,16 @@
+{
+    "name": "NotTwice.Serializables.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b6e89c0d8a5f6d442a1cd2efa206e1be"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
