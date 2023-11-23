@@ -22,8 +22,6 @@ namespace Assets.com.nottwice.application.Runtime.Components
 			_textComponent.text += ApplicationInstancesContainer.Application.GetApplicationVersion();
 
 			ApplicationInstancesContainer.Logger.Log(LogType.Log, "The application version is displayed");
-
-			DestroyImmediate(gameObject);
 		}
 	}
 }
