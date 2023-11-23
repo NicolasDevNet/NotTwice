@@ -1,6 +1,7 @@
 ﻿using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
 using UnityEngine;
 using DG.Tweening;
+using NaughtyAttributes;
 
 namespace Assets.com.nottwice.ui.Runtime.Components
 {
@@ -11,6 +12,7 @@ namespace Assets.com.nottwice.ui.Runtime.Components
 	[DisallowMultipleComponent]
 	public class FollowingYTargetUI : MonoBehaviour
 	{
+		[Required]
 		public FloatVariable AnimationDuration;
 
 		public void ExecuteFollow(Transform target)

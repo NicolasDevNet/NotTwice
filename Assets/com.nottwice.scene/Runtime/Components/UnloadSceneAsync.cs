@@ -5,28 +5,25 @@ using UnityEngine.SceneManagement;
 namespace Assets.com.nottwice.scene.Runtime.Components
 {
 	/// <summary>
-	/// Component for asynchronous scene loading
+	/// Component for asynchronous scene unloading
 	/// </summary>
-	[AddComponentMenu("NotTwice/Scene/LoadSceneAsync")]
+	[AddComponentMenu("NotTwice/Scene/UnloadSceneAsync")]
 	[DisallowMultipleComponent]
-	public class LoadSceneAsync : MonoBehaviour
+	public class UnloadSceneAsync : MonoBehaviour
 	{
 		[Tooltip("Target scene when methods cannot be called with parameters")]
 		public SceneConfiguration OptionalTargetScene;
 
-		[Tooltip("Load scene mode when methods cannot be called with parameters")]
-		public LoadSceneMode LoadSceneMode;
-
 		public void Execute()
 		{
-			Execute(OptionalTargetScene, LoadSceneMode);
+			Execute(OptionalTargetScene);
 		}
 
-		public void Execute(SceneConfiguration targetScene, LoadSceneMode loadSceneMode)
+		public void Execute(SceneConfiguration targetScene)
 		{
 			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Change scene to {targetScene.Name}");
 
-			SceneInstancesContainer.SceneManager.LoadSceneAsync(targetScene.Name, loadSceneMode);
+			SceneInstancesContainer.SceneManager.UnloadSceneAsync(targetScene.Name);
 		}
 	}
 }
