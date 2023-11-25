@@ -1,0 +1,17 @@
+{
+  "name": "com.nottwice.data",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "displayName": "NotTwice Data",
+  "description": "NotTwice Application fournit des composants et objets scriptables pour faciliter la gestion des données dans une application Unity",
+  "keywords": [
+    "data",
+    "playerprefs"
+  ],
+  "author": {
+    "name": "NotTwice, NFO."
+  },
+  "dependencies": {
+  }
+}
