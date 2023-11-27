@@ -1,17 +1,23 @@
-﻿using TMPro;
+﻿using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.com.nottwice.ui.Runtime.Components
 {
 	/// <summary>
-	/// Component for changing the text value of a text component from the value of another component
+	/// Component for changing the text value of a text component from an other source
 	/// </summary>
-	[AddComponentMenu("NotTwice/UI/TextChanger")]
+	[AddComponentMenu("NotTwice/UI/TMPTextValueChanger")]
 	[DisallowMultipleComponent]
-	public class TextChanger : MonoBehaviour
+	public class TMPTextValueChanger : MonoBehaviour
 	{
 		public TMP_Text TextComponent;
+
+		public void ChangeFromStringVariable(StringVariable stringVariable)
+		{
+			ChangeTextValue(stringVariable.Value, stringVariable.name);
+		}
 
 		public void ChangeFromSlider(Slider slider)
 		{

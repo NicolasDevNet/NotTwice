@@ -9,7 +9,6 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// Component to trigger a GameEvent when a PointerEnter event is detected.
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/OnPointerEnterEvent")]
-	[DisallowMultipleComponent]
 	public class OnPointerEnterEvent : MonoBehaviour, IPointerEnterHandler
 	{
 		[Required, Tooltip("Event to register with.")]

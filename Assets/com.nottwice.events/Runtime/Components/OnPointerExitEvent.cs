@@ -9,7 +9,6 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// Component to trigger a GameEvent when a PointerExit event is detected.
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/OnPointerExitEvent")]
-	[DisallowMultipleComponent]
 	public class OnPointerExitEvent : MonoBehaviour, IPointerExitHandler
 	{
 		[Required, Tooltip("Event to register with.")]
