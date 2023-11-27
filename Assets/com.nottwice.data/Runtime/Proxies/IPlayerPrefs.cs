@@ -7,7 +7,7 @@
 		float GetFloat(string key);
 		int GetInt(string key);
 		string GetString(string key);
-		void HasKey(string key);
+		bool HasKey(string key);
 		void Save();
 		void SetFloat(string key, float value);
 		void SetInt(string key, int value);

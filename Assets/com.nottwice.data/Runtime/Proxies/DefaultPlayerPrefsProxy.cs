@@ -49,9 +49,9 @@ namespace Assets.com.nottwice.data.Runtime.Proxies
 			return PlayerPrefs.GetInt(key);
 		}
 
-		public void HasKey(string key)
+		public bool HasKey(string key)
 		{
-			PlayerPrefs.HasKey(key);
+			return PlayerPrefs.HasKey(key);
 		}
 
 		public void DeleteKey(string key)
