@@ -17,3 +17,5 @@ https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events
 https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scene
 
 https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.ui
+
+https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.data
