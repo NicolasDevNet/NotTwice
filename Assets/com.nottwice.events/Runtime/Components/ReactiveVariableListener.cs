@@ -9,6 +9,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/ReactiveVariableListener")]
 	[DisallowMultipleComponent]
+	[DefaultExecutionOrder(12)]
 	public class ReactiveVariableListener : MonoBehaviour
 	{
 		public List<ReactiveVariableEvent> ReactiveVariableEvents = new List<ReactiveVariableEvent>();

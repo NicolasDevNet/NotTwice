@@ -10,6 +10,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/GameEventListener")]
 	[DisallowMultipleComponent]
+	[DefaultExecutionOrder(11)]
 	public class GameEventListener : MonoBehaviour
 	{
 		[Required ,Tooltip("Event to register with.")]

@@ -7,6 +7,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// <summary>
 	/// Component to trigger a GameEvent when a Start event is detected.
 	/// </summary>
+	[DefaultExecutionOrder(12)]
 	[AddComponentMenu("NotTwice/Events/OnStartEvent")]
 	public class OnStartEvent : MonoBehaviour
 	{
