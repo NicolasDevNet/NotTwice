@@ -1,7 +1,7 @@
 {
   "name": "com.nottwice.events",
-  "version": "1.0.3",
-  "unity": "2021.4",
+  "version": "1.0.4",
+  "unity": "2021.3",
   "unityRelease": "15f1",
   "displayName": "NotTwice Events",
   "description": "NotTwice Events fournit des composants et objets scriptables pour faciliter la gestion des évènements dans Unity",
