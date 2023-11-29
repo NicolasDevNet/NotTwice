@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 {
-	public class ScriptableEventDataSet<T> : ScriptableObject
-		where T : DataEventItem<T>
+	public class ScriptableEventDataSet<T, U> : ScriptableObject
+		where T : DataEventItem<U>
 	{
 		public List<T> DataSet = new List<T>();
 

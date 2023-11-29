@@ -10,13 +10,13 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// Abstract class used to trigger a conditioned event when the component is activated.
 	/// The event triggered is the one linked to the conditioned item.
 	/// </summary>
-	public abstract class OnStartConditionalDataSetEvent<T> : MonoBehaviour
-		where T : DataEventItem<T>
+	public abstract class OnStartConditionalDataSetEvent<T, U> : MonoBehaviour
+		where T : DataEventItem<U>
 	{
-		public ScriptableEventDataSet<T> DataEventItems;
+		public ScriptableEventDataSet<T, U> DataEventItems;
 
 		[ReadOnly]
-		public T ConditionalItem;
+		public U ConditionalItem;
 
 		protected void OnEnable()
 		{
@@ -26,7 +26,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 			targetEvent.Raise();
 		}
 
-		protected void SetConditionalItem(T conditionalItem)
+		protected void SetConditionalItem(U conditionalItem)
 		{
 			ConditionalItem = conditionalItem;
 		}
