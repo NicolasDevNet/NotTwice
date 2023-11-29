@@ -5,10 +5,11 @@ using UnityEngine;
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 {
 	public class ScriptableEventDataSet<T> : ScriptableObject
+		where T : DataEventItem<T>
 	{
-		public List<DataEventItem<T>> DataSet = new List<DataEventItem<T>>();
+		public List<T> DataSet = new List<T>();
 
-		public void Add(DataEventItem<T> data)
+		public void Add(T data)
 		{
 			if (!DataSet.Contains(data))
 			{
@@ -16,7 +17,7 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 			}
 		}
 
-		public void Remove(DataEventItem<T> data)
+		public void Remove(T data)
 		{
 			if (DataSet.Contains(data))
 			{
