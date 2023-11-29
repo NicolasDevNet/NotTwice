@@ -13,7 +13,7 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 		[Tooltip("List of initialized components")]
 		public List<SceneLauncherPart> SceneLauncherParts;
 
-		public void Start()
+		public void OnEnable()
 		{
 			foreach (SceneLauncherPart part in SceneLauncherParts)
 			{
