@@ -1,6 +1,5 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
-using Assets.com.nottwice.events.Runtime.Serializables;
-using Assets.com.nottwice.scriptableobjects.Runtime.Collections;
+using Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -12,17 +11,22 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	/// </summary>
 	public abstract class OnStartConditionalDataSetEvent<T> : MonoBehaviour
 	{
-		[Required, Tooltip("Event to register with.")]
-		public ScriptableDataSet<DataEventItem<T>> DataEventItems;
+		public ScriptableEventDataSet<T> DataEventItems;
 
+		[ReadOnly]
 		public T ConditionalItem;
 
-		public void OnEnable()
+		protected void OnEnable()
 		{
 			GameEvent targetEvent = GetTargetEvent();
 
 			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Start for {name} with event {targetEvent.name}");
 			targetEvent.Raise();
+		}
+
+		protected void SetConditionalItem(T conditionalItem)
+		{
+			ConditionalItem = conditionalItem;
 		}
 
 		protected GameEvent GetTargetEvent()
