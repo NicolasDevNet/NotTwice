@@ -188,6 +188,16 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Proxies
 			SteamMatchmaking.OnLobbyMemberDisconnected += onLobbyMemberDisconnected;
 		}
 
+		public void SetOnLobbyDataChanged(Action<Lobby> onLobbyDataChanged)
+		{
+			SteamMatchmaking.OnLobbyDataChanged += onLobbyDataChanged;
+		}
+
+		public void RemoveOnLobbyDataChanged(Action<Lobby> onLobbyDataChanged)
+		{
+			SteamMatchmaking.OnLobbyDataChanged -= onLobbyDataChanged;
+		}
+
 		public void RemoveOnLobbyCreated(Action<Result, Lobby> onLobbyCreated)
 		{
 			SteamMatchmaking.OnLobbyCreated -= onLobbyCreated;
