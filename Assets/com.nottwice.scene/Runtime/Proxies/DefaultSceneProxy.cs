@@ -6,21 +6,6 @@ namespace Assets.com.nottwice.scene.Runtime.Proxies
 {
 	public class DefaultSceneProxy : ISceneManager
 	{
-		private static DefaultSceneProxy _instance;
-
-		public static DefaultSceneProxy Instance
-		{
-			get
-			{
-				if( _instance == null )
-				{
-					_instance = new DefaultSceneProxy();
-				}
-
-				return _instance;
-			}
-		}
-
 		public AsyncOperation LoadSceneAsync(string sceneName)
 		{
 			return SceneManager.LoadSceneAsync(sceneName);

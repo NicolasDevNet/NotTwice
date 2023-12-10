@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using Assets.com.nottwice.application.Runtime.Proxies;
+using Assets.com.nottwice.lifetime.Runtime;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.com.nottwice.application.Runtime.Components
@@ -12,6 +14,16 @@ namespace Assets.com.nottwice.application.Runtime.Components
 	{
 		private TextMeshProUGUI _textComponent;
 
+		private IApplication _application;
+
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_application = AppContainer.Get<IApplication>();
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void OnEnable()
 		{
 			if (!TryGetComponent(out _textComponent))
@@ -19,9 +31,9 @@ namespace Assets.com.nottwice.application.Runtime.Components
 				throw new MissingComponentException($"The {typeof(TextMeshProUGUI).FullName} component is missing from the GameObject of the {typeof(ApplicationVersion).FullName} component.");
 			}
 
-			_textComponent.text += ApplicationInstancesContainer.Application.GetApplicationVersion();
+			_textComponent.text += _application.GetApplicationVersion();
 
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, "The application version is displayed");
+			_logger.Log(LogType.Log, "The application version is displayed");
 		}
 	}
 }

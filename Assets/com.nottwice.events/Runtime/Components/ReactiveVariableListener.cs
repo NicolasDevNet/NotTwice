@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables;
+using Assets.com.nottwice.lifetime.Runtime;
 
 namespace Assets.com.nottwice.events.Runtime.Components
 {
@@ -14,12 +15,19 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	{
 		public List<ReactiveVariableEvent> ReactiveVariableEvents = new List<ReactiveVariableEvent>();
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void OnEnable()
 		{
 			foreach(ReactiveVariableEvent ev in ReactiveVariableEvents)
 			{
 				ev.Subscribe();
-				ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Subscribe to {ev.name}");
+				_logger.Log(LogType.Log, $"Subscribe to {ev.name}");
 			}
 		}
 
@@ -28,7 +36,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 			foreach (ReactiveVariableEvent ev in ReactiveVariableEvents)
 			{
 				ev.UnSubscribe();
-				ApplicationInstancesContainer.Logger.Log(LogType.Log, $"UnSubscribe from {ev.name}");
+				_logger.Log(LogType.Log, $"UnSubscribe from {ev.name}");
 			}
 		}
 	}

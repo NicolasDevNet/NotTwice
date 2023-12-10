@@ -1,6 +1,7 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
 using Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections;
 using Assets.com.nottwice.events.Runtime.Serializables;
+using Assets.com.nottwice.lifetime.Runtime;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -19,11 +20,18 @@ namespace Assets.com.nottwice.events.Runtime.Components
 		[ReadOnly]
 		public U ConditionalItem;
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		protected void OnEnable()
 		{
 			GameEvent targetEvent = GetTargetEvent();
 
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Start for {name} with event {targetEvent.name}");
+			_logger.Log(LogType.Log, $"Start for {name} with event {targetEvent.name}");
 			targetEvent.Raise();
 		}
 

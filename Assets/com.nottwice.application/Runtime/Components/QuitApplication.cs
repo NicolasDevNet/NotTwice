@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.com.nottwice.application.Runtime.Proxies;
+using Assets.com.nottwice.lifetime.Runtime;
+using UnityEngine;
 
 namespace Assets.com.nottwice.application.Runtime.Components
 {
@@ -9,10 +11,20 @@ namespace Assets.com.nottwice.application.Runtime.Components
 	[DisallowMultipleComponent]
 	public class QuitApplication : MonoBehaviour
 	{
+		private IApplication _application;
+
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_application = AppContainer.Get<IApplication>();
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void ExecuteQuitApplication()
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log ,"Try to quit application");
-			ApplicationInstancesContainer.Application.Quit();
+			_logger.Log(LogType.Log ,"Try to quit application");
+			_application.Quit();
 		}
 	}
 }

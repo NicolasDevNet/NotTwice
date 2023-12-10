@@ -7,6 +7,8 @@ using System;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Assets.com.nottwice.lifetime.Runtime;
+using Assets.com.nottwice.scene.Runtime.Proxies;
 
 namespace Assets.com.nottwice.scene.Runtime.Components
 {
@@ -39,6 +41,15 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 
 		private IDisposable _loadingObserver;
 
+		private ILogger _logger;
+		private ISceneManager _sceneManager;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+			_sceneManager = AppContainer.Get<ISceneManager>();
+		}
+
 		public void OnEnable()
 		{
 			_loadingObserver = this.UpdateAsObservable()
@@ -56,17 +67,17 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 		/// </summary>
 		public void LoadTargetSceneAsync()
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Unloading of {PreviousSceneStorage.Value} started");
+			_logger.Log(LogType.Log, $"Unloading of {PreviousSceneStorage.Value} started");
 
-			SceneInstancesContainer.SceneManager.AddSceneUnloadedEvent(OnSceneUnloaded);
+			_sceneManager.AddSceneUnloadedEvent(OnSceneUnloaded);
 
-			SceneInstancesContainer.SceneManager.UnloadSceneAsync(PreviousSceneStorage.Value);
+			_sceneManager.UnloadSceneAsync(PreviousSceneStorage.Value);
 
-			SceneInstancesContainer.SceneManager.AddSceneLoadedEvent(OnSceneLoaded);
+			_sceneManager.AddSceneLoadedEvent(OnSceneLoaded);
 
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Loading of {TargetSceneStorage.Value} started");
+			_logger.Log(LogType.Log, $"Loading of {TargetSceneStorage.Value} started");
 
-			SceneInstancesContainer.SceneManager.LoadSceneAsync(TargetSceneStorage.Value, LoadSceneMode.Additive);
+			_sceneManager.LoadSceneAsync(TargetSceneStorage.Value, LoadSceneMode.Additive);
 		}
 
 		/// <summary>
@@ -74,12 +85,12 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 		/// </summary>
 		public void UnloadSceneSceneTransitionAsync()
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Unloading of {SceneTransitionConfiguration.SceneName} started");
+			_logger.Log(LogType.Log, $"Unloading of {SceneTransitionConfiguration.SceneName} started");
 
-			SceneInstancesContainer.SceneManager.RemoveSceneLoadedEvent(OnSceneLoaded);
-			SceneInstancesContainer.SceneManager.RemoveSceneUnloadedEvent(OnSceneUnloaded);
+			_sceneManager.RemoveSceneLoadedEvent(OnSceneLoaded);
+			_sceneManager.RemoveSceneUnloadedEvent(OnSceneUnloaded);
 
-			SceneInstancesContainer.SceneManager.UnloadSceneAsync(SceneTransitionConfiguration.SceneName);
+			_sceneManager.UnloadSceneAsync(SceneTransitionConfiguration.SceneName);
 		}
 
 		#region Callbacks
@@ -111,7 +122,7 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 		/// </summary>
 		private void LoadingIsComplete(Unit unit)
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, "Loading complete");
+			_logger.Log(LogType.Log, "Loading complete");
 			Animator.SetBool(SceneTransitionConfiguration.ShowCurtainStateEndedName, true);
 		}
 

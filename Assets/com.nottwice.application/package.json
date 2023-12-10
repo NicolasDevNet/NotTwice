@@ -1,6 +1,6 @@
 {
   "name": "com.nottwice.application",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "unity": "2021.3",
   "unityRelease": "15f1",
   "displayName": "NotTwice Application",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "com.unity.textmeshpro":"3.0.6",
-    "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects"
+    "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
+    "com.nottwice.lifetime": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.lifetime"
   }
 }

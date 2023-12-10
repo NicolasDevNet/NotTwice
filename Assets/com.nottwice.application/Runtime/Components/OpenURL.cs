@@ -1,4 +1,6 @@
-﻿using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
+﻿using Assets.com.nottwice.application.Runtime.Proxies;
+using Assets.com.nottwice.lifetime.Runtime;
+using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
 using UnityEngine;
 
 namespace Assets.com.nottwice.application.Runtime.Components
@@ -13,6 +15,16 @@ namespace Assets.com.nottwice.application.Runtime.Components
 		[Tooltip("Optional parameter used if the use of the component requires a method without parameters.")]
 		public StringVariable UrlToRedirect;
 
+		private IApplication _application;
+
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_application = AppContainer.Get<IApplication>();
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void ExecuteOpeningURL()
 		{
 			if(UrlToRedirect == null)
@@ -25,8 +37,8 @@ namespace Assets.com.nottwice.application.Runtime.Components
 
 		public void ExecuteOpeningURL(StringVariable targetUrl)
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Redirect to {targetUrl.Value}");
-			ApplicationInstancesContainer.Application.OpenURL(targetUrl.Value);
+			_logger.Log(LogType.Log, $"Redirect to {targetUrl.Value}");
+			_application.OpenURL(targetUrl.Value);
 		}
 	}
 }

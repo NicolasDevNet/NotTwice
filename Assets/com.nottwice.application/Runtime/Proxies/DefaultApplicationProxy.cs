@@ -5,21 +5,6 @@ namespace Assets.com.nottwice.application.Runtime.Proxies
 {
 	public class DefaultApplicationProxy : IApplication
 	{
-		private static DefaultApplicationProxy _instance;
-
-		public static DefaultApplicationProxy Instance
-		{
-			get
-			{
-				if (_instance == null)
-				{
-					_instance = new DefaultApplicationProxy();
-				}
-
-				return _instance;
-			}
-		}
-
 		public void OpenURL(string url)
 		{
 			Application.OpenURL(url);

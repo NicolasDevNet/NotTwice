@@ -1,4 +1,6 @@
-﻿using Assets.com.nottwice.scene.Runtime.ScriptableObjects;
+﻿using Assets.com.nottwice.lifetime.Runtime;
+using Assets.com.nottwice.scene.Runtime.Proxies;
+using Assets.com.nottwice.scene.Runtime.ScriptableObjects;
 using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
 using NaughtyAttributes;
 using UnityEngine;
@@ -32,15 +34,15 @@ namespace Assets.com.nottwice.scene.Runtime.Components
 
 		public void Execute(SceneConfiguration targetScene)
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Transition to {targetScene.Name} started");
+			_logger.Log(LogType.Log, $"Transition to {targetScene.Name} started");
 
 			//Stores the value of the previous scene
-			PreviousSceneStorage.Value = SceneInstancesContainer.SceneManager.GetActiveScene().name;
+			PreviousSceneStorage.Value = _sceneManager.GetActiveScene().name;
 
 			//Stores the scene value and additively loads the transition scene
 			TargetSceneStorage.Value = targetScene.Name;
 
-			SceneInstancesContainer.SceneManager.LoadSceneAsync(SceneTransitionConfiguration.SceneName, LoadSceneMode.Additive);
+			_sceneManager.LoadSceneAsync(SceneTransitionConfiguration.SceneName, LoadSceneMode.Additive);
 		}
 	}
 }

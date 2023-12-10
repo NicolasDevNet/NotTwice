@@ -4,21 +4,6 @@ namespace Assets.com.nottwice.data.Runtime.Proxies
 {
 	public class DefaultPlayerPrefsProxy : IPlayerPrefs
 	{
-		private static DefaultPlayerPrefsProxy _instance;
-
-		public static DefaultPlayerPrefsProxy Instance
-		{
-			get
-			{
-				if (_instance == null)
-				{
-					_instance = new DefaultPlayerPrefsProxy();
-				}
-
-				return _instance;
-			}
-		}
-
 		public void SetString(string key, string value)
 		{
 			PlayerPrefs.SetString(key, value);

@@ -1,4 +1,5 @@
-﻿using Assets.com.nottwice.serializables.Runtime.Operators;
+﻿using Assets.com.nottwice.lifetime.Runtime;
+using Assets.com.nottwice.serializables.Runtime.Operators;
 using System.Linq;
 using UniRx;
 using UnityEngine;
@@ -12,6 +13,13 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 
 		public SerializableBoolCondition Condition;
 
+		private ILogger _logger;
+
+		public void OnEnable()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public override void Subscribe()
 		{
 			if (BoundEvent != null)
@@ -23,7 +31,7 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 
 				_valueObserver = Value.Subscribe(_ => 
 				{
-					ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Event raise: {BoundEvent.name}");
+					_logger.Log(LogType.Log, $"Event raise: {BoundEvent.name}");
 					BoundEvent.Raise();
 				});
 			}

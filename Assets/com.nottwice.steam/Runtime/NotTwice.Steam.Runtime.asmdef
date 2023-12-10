@@ -1,0 +1,17 @@
+{
+    "name": "NotTwice.Steam.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2aa43b0c797e0d444a7e82e75d4f2082",
+        "GUID:a5e5a8c906f2f4b49964997961389ae2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

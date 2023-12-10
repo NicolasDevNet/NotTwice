@@ -2,6 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
 using NaughtyAttributes;
+using Assets.com.nottwice.lifetime.Runtime;
 
 namespace Assets.com.nottwice.events.Runtime.Components
 {
@@ -14,9 +15,16 @@ namespace Assets.com.nottwice.events.Runtime.Components
 		[Required, Tooltip("Event to register with.")]
 		public GameEvent Event;
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void OnPointerExit(PointerEventData eventData)
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Pointer exit from {name}");
+			_logger.Log(LogType.Log, $"Pointer exit from {name}");
 			Event.Raise();
 		}
 	}

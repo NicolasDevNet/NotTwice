@@ -1,4 +1,5 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
+using Assets.com.nottwice.lifetime.Runtime;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +20,13 @@ namespace Assets.com.nottwice.events.Runtime.Components
 		[Tooltip("Response to invoke when Event is raised.")]
 		public UnityEvent Response;
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		protected void OnEnable()
 		{
 			Event.RegisterListener(this);
@@ -31,7 +39,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 
 		public void OnEventRaised()
 		{
-			ApplicationInstancesContainer.Logger.Log(LogType.Log, $"Event raise: {Event.name}");
+			_logger.Log(LogType.Log, $"Event raise: {Event.name}");
 			Response?.Invoke();
 		}
 	}
