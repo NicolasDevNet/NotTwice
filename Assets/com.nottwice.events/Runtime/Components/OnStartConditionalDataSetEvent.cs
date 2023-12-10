@@ -20,7 +20,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 		[ReadOnly]
 		public U ConditionalItem;
 
-		private ILogger _logger;
+		protected ILogger _logger;
 
 		public void Awake()
 		{
