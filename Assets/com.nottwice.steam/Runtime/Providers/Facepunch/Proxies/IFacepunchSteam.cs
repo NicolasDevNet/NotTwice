@@ -44,5 +44,6 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Proxies
 		void RemoveOnChatMessage(Action<Lobby, Friend, string> onChatMessage);
 		void SetOnChatMessage(Action<Lobby, Friend, string> onChatMessage);
 		void SetOnLobbyDataChanged(Action<Lobby> onLobbyDataChanged);
+		void RemoveOnLobbyDataChanged(Action<Lobby> onLobbyDataChanged);
 	}
 }
