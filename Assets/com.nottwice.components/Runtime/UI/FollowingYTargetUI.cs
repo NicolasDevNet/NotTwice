@@ -26,7 +26,7 @@ namespace Assets.com.nottwice.components.Runtime.UI
 		public void ExecuteFollow(Transform target)
 		{
 			_logger.Log(LogType.Log, $"{name} is following {target.name} at Y:{target.position.y}");
-			transform.DOMoveY(target.position.y, AnimationDuration.Value);
+			transform.DOLocalMoveY(target.position.y, AnimationDuration.Value);
 		}
 	}
 }
