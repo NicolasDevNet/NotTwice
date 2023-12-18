@@ -19,12 +19,6 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 		private IDisposable _addObserver;
 		private IDisposable _removeObserver;
 
-		private ILogger _logger;
-
-		public void OnEnable()
-		{
-			_logger = AppContainer.Get<ILogger>();
-		}
 
 		public void SubscribeRemove()
 		{
@@ -33,7 +27,6 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 				_removeObserver = DataSet.ObserveAdd()
 					.Subscribe(_ => 
 					{
-						_logger.Log(LogType.Log, $"Event raise: {BoundEventRemove.name}");
 						BoundEventRemove.Raise();
 					});
 			}
@@ -54,7 +47,6 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 				_addObserver = DataSet.ObserveAdd()
 					.Subscribe(_ => 
 					{
-						_logger.Log(LogType.Log, $"Event raise: {BoundEventAdd.name}");
 						BoundEventAdd.Raise();
 					});
 			}

@@ -14,13 +14,6 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 
 		public List<SerializableFloatCondition> Conditions;
 
-		private ILogger _logger;
-
-		public void OnEnable()
-		{
-			_logger = AppContainer.Get<ILogger>();
-		}
-
 		public override void Subscribe()
 		{
 			if (BoundEvent != null)
@@ -31,7 +24,6 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 				}
 				_valueObserver = Value.Subscribe(_ => 
 				{
-					_logger.Log(LogType.Log, $"Event raise: {BoundEvent.name}");
 					BoundEvent.Raise();
 				});
 			}

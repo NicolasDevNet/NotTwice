@@ -3,8 +3,14 @@ using UnityEngine;
 
 namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Extentions
 {
+	/// <summary>
+	/// Extension class dedicated to adding behaviors for the Image structure provided by Facepunch
+	/// </summary>
 	public static class FacepunchImageExtentions
 	{
+		/// <summary>
+		/// Method for converting information from a facepunch image structure to a Texture2D class
+		/// </summary>
 		public static Texture2D ConvertToTexture2D(this Image? image)
 		{
 			if (image == null)
