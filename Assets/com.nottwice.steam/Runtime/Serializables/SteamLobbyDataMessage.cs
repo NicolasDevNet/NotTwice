@@ -2,6 +2,6 @@
 {
 	public abstract class SteamDataLobbyMessage : SteamLobbyMessage
 	{
-		public string DataType;
+		public string DataType { get; set; }
 	}
 }
