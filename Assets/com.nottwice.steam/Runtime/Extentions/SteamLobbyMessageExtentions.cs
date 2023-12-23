@@ -1,4 +1,5 @@
-﻿using Assets.com.nottwice.steam.Runtime.Serializables;
+﻿using Assets.com.nottwice.steam.Runtime.Attributes;
+using Assets.com.nottwice.steam.Runtime.Serializables;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -18,7 +19,7 @@ namespace Assets.com.nottwice.steam.Runtime.Extentions
 		{
 			T instance = new T();
 
-			PropertyInfo[] properties = typeof(T).GetProperties();
+			PropertyInfo[] properties = GetOrderedProperties<T>();
 
 			for (int i = 0; i < Math.Min(properties.Length, args.Length); i++)
 			{
@@ -36,17 +37,28 @@ namespace Assets.com.nottwice.steam.Runtime.Extentions
 		public static string ConvertToArgs<T>(this T instance, string separator)
 			where T : SteamLobbyMessage, new()
 		{
-			PropertyInfo[] properties = typeof(T).GetProperties();
+			PropertyInfo[] properties = GetOrderedProperties<T>();
 
 			string[] args = new string[properties.Length];
 
-			for (int i = properties.Length - 1; i >= 0; i--)
+			for (int i = 0; i < properties.Length; i++)
 			{
 				object value = properties[i].GetValue(instance);
 				args[i] = value?.ToString() ?? string.Empty;
 			}
 
 			return string.Join(separator, args.Reverse());
+		}
+
+		private static PropertyInfo[] GetOrderedProperties<T>()
+		{
+			Type orderAttributeType = typeof(OrderAttribute);
+
+			return typeof(T).GetProperties()
+				.Where(p => Attribute.IsDefined(p, orderAttributeType))
+				.OrderBy(p => ((OrderAttribute)p.GetCustomAttributes(orderAttributeType, false).Single()).Order)
+				.Select(p => p).ToArray();
+			;
 		}
 	}
 }
