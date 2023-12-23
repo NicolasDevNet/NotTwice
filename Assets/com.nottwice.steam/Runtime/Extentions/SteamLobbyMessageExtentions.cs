@@ -1,5 +1,6 @@
 ﻿using Assets.com.nottwice.steam.Runtime.Serializables;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Assets.com.nottwice.steam.Runtime.Extentions
@@ -45,7 +46,7 @@ namespace Assets.com.nottwice.steam.Runtime.Extentions
 				args[i] = value?.ToString() ?? string.Empty;
 			}
 
-			return string.Join(separator, args);
+			return string.Join(separator, args.Reverse());
 		}
 	}
 }
