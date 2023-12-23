@@ -39,7 +39,7 @@ namespace Assets.com.nottwice.steam.Runtime.Extentions
 
 			string[] args = new string[properties.Length];
 
-			for (int i = 0; i < properties.Length; i++)
+			for (int i = properties.Length - 1; i <= 0; i--)
 			{
 				object value = properties[i].GetValue(instance);
 				args[i] = value?.ToString() ?? string.Empty;
