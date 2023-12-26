@@ -85,6 +85,15 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Components
 			}
 			else
 			{
+				//Replace old callbacks
+				Instance.OnLobbyCreatedCallback = OnLobbyCreatedCallback;
+				Instance.OnGameLobbyJoinRequestedCallback = OnGameLobbyJoinRequestedCallback;
+				Instance.OnLobbyMemberJoinedCallback = OnLobbyMemberJoinedCallback;
+				Instance.OnLobbyMemberLeaveCallback = OnLobbyMemberLeaveCallback;
+				Instance.OnLobbyHostLeaveCallback = OnLobbyHostLeaveCallback;
+				Instance.OnLobbyDataChangedCallback = OnLobbyDataChangedCallback;
+				Instance.OnChatMessageCallback = OnChatMessageCallback;
+
 				Destroy(gameObject);
 			}
 		}
