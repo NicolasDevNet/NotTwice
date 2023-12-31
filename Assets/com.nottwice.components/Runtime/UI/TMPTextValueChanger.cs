@@ -32,6 +32,12 @@ namespace Assets.com.nottwice.components.Runtime.UI
 			ChangeTextValue(slider.value.ToString(), slider.name);
 		}
 
+		public void ChangeTextValue(string value)
+		{
+			_logger.Log(LogType.Log, $"New text value for component {TextComponent.name}: {value}");
+			TextComponent.text = value;
+		}
+
 		protected void ChangeTextValue(string value, string componentName)
 		{
 			_logger.Log(LogType.Log, $"New text value for component {TextComponent.name}: {value} | Source: {componentName}");
