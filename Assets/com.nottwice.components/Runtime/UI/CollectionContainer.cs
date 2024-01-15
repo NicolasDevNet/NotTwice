@@ -15,7 +15,7 @@ namespace Assets.com.nottwice.components.Runtime.UI
 
 		public void Awake()
 		{
-			Children = GetComponentsInChildren<T>();
+			Children = GetComponentsInChildren<T>(true);
 		}
 	}
 }
