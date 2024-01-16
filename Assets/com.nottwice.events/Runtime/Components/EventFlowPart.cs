@@ -12,6 +12,11 @@ namespace Assets.com.nottwice.events.Runtime.Components
 
 		public UnityEvent<EventFlowPart> Event;
 
+		public void SetIsDone()
+		{
+			IsDone = true;
+		}
+
 		public void Execute()
 		{
 			Event?.Invoke(this);
