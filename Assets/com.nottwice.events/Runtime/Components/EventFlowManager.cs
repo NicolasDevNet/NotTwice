@@ -23,6 +23,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 		{
 			foreach (EventFlowPart part in FlowParts)
 			{
+				part.Execute();
 				yield return new WaitUntil(() => part.IsDone);			
 			}
 
