@@ -1,5 +1,4 @@
 ﻿using NaughtyAttributes;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,10 +12,9 @@ namespace Assets.com.nottwice.events.Runtime.Components
 
 		public UnityEvent<EventFlowPart> Event;
 
-		public IEnumerator Execute()
+		public void Execute()
 		{
 			Event?.Invoke(this);
-			yield return new WaitUntil(() => IsDone);
 		}
 	}
 }
