@@ -23,5 +23,10 @@ namespace Assets.com.nottwice.components.Runtime.UI
 				return Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f;
 			}
 		}
+
+		public void DeactivateGameObject()
+		{
+			gameObject.SetActive(false);
+		}
 	}
 }
