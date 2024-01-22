@@ -13,7 +13,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	[AddComponentMenu("NotTwice/Events/OnPointerRightClickUnityEvent")]
 	public class OnPointerRightClickUnityEvent : MonoBehaviour, IPointerClickHandler
 	{
-		[Required, Tooltip("Event to register with.")]
+		[Tooltip("Event to register with.")]
 		public UnityEvent Event;
 
 		private ILogger _logger;

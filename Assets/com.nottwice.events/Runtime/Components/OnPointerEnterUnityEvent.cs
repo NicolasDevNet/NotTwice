@@ -13,7 +13,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	[AddComponentMenu("NotTwice/Events/OnPointerEnterUnityEvent")]
 	public class OnPointerEnterUnityEvent : MonoBehaviour, IPointerEnterHandler
 	{
-		[Required, Tooltip("Event to register with.")]
+		[Tooltip("Event to register with.")]
 		public UnityEvent Event;
 
 		private ILogger _logger;
