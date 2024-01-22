@@ -9,8 +9,6 @@ using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
 using Steamworks;
 using Assets.com.nottwice.steam.Runtime.Serializables.Callbacks;
 using Assets.com.nottwice.steam.Runtime.ScriptableObjects;
-using Assets.com.nottwice.steam.Runtime.Serializables;
-using Assets.com.nottwice.steam.Runtime.Extentions;
 
 namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Components
 {
@@ -185,9 +183,9 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Components
 		}
 
 		public void SendLobbyMessage<T>(T data)
-			where T : SteamLobbyMessage, new()
+			where T : class
 		{
-			CurrentLobby?.SendChatString(data.ConvertToArgs(LobbySettings.ChatDataMessageSeparator));
+			CurrentLobby?.SendChatString($"{typeof(T).Name}{LobbySettings.ChatDataMessageSeparator}{JsonUtility.ToJson(data)}");
 		}
 
 		public void SetPublic()
