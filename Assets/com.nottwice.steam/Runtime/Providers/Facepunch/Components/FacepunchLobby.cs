@@ -84,6 +84,7 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Components
 			else
 			{
 				//Replace old instance
+				CurrentLobby = Instance.CurrentLobby;
 				Destroy(Instance.gameObject);
 
 				Instance = this;
