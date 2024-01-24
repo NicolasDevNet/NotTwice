@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.com.nottwice.components.Runtime.UI
 {
@@ -9,7 +10,10 @@ namespace Assets.com.nottwice.components.Runtime.UI
 	public class AnimatorExtender : MonoBehaviour
 	{
 		[ReadOnly, Tooltip("The animator is fed automatically if there is an animator on the same gameobject.")]
+		
 		public Animator Animator;
+
+		public UnityEvent EndAnimationEvent;
 
 		public void Awake()
 		{
@@ -28,5 +32,11 @@ namespace Assets.com.nottwice.components.Runtime.UI
 		{
 			gameObject.SetActive(false);
 		}
+
+		public void InvokeEndAnimationEvent()
+		{
+			EndAnimationEvent?.Invoke();
+
+        }
 	}
 }

@@ -59,7 +59,7 @@ namespace Assets.com.nottwice.steam.Runtime.Providers.Facepunch.Components
 
 		public static FacepunchLobby Instance;
 
-		public Lobby? CurrentLobby;
+		public static Lobby? CurrentLobby;
 
 		private ILogger _logger;
 
