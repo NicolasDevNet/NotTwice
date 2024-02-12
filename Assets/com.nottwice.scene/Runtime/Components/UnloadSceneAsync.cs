@@ -2,7 +2,6 @@
 using Assets.com.nottwice.scene.Runtime.Proxies;
 using Assets.com.nottwice.scene.Runtime.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.com.nottwice.scene.Runtime.Components
 {

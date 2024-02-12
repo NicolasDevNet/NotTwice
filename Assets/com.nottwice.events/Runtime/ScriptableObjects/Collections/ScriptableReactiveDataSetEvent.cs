@@ -1,5 +1,4 @@
-﻿using Assets.com.nottwice.lifetime.Runtime;
-using System;
+﻿using System;
 using UniRx;
 using UnityEngine;
 
@@ -16,11 +15,11 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 
 		public GameEvent BoundEventRemove;
 
-		private IDisposable _addObserver;
-		private IDisposable _removeObserver;
+		protected IDisposable _addObserver;
+		protected IDisposable _removeObserver;
 
 
-		public void SubscribeRemove()
+		public virtual void SubscribeRemove()
 		{
 			if (BoundEventRemove != null)
 			{
@@ -32,7 +31,7 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 			}
 		}
 
-		public void UnSubscribeRemove()
+		public virtual void UnSubscribeRemove()
 		{
 			if (BoundEventRemove != null)
 			{
@@ -40,7 +39,7 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 			}
 		}
 
-		public void SubscribeAdd()
+		public virtual void SubscribeAdd()
 		{
 			if (BoundEventAdd != null)
 			{
@@ -52,7 +51,7 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 			}
 		}
 
-		public void UnSubscribeAdd()
+		public virtual void UnSubscribeAdd()
 		{
 			if (BoundEventAdd != null)
 			{

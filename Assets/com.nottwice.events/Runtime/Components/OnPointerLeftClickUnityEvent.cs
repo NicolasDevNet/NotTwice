@@ -1,6 +1,4 @@
-﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
-using Assets.com.nottwice.lifetime.Runtime;
-using NaughtyAttributes;
+﻿using Assets.com.nottwice.lifetime.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;

@@ -1,5 +1,4 @@
-﻿using Assets.com.nottwice.lifetime.Runtime;
-using Assets.com.nottwice.serializables.Runtime.Operators;
+﻿using Assets.com.nottwice.serializables.Runtime.Operators;
 using System.Linq;
 using UniRx;
 using UnityEngine;
@@ -13,6 +12,8 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 
 		public SerializableBoolCondition Condition;
 
+		public GameEvent FalseEvent;
+
 		public override void Subscribe()
 		{
 			if (BoundEvent != null)
@@ -22,9 +23,16 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 					Value.Where(_ => Condition.IsTrue(Value.Value));
 				}
 
-				_valueObserver = Value.Subscribe(_ => 
+				_valueObserver = Value.Subscribe(value => 
 				{
-					BoundEvent.Raise();
+					if(value)
+					{
+						BoundEvent?.Raise();
+					}
+					else
+					{
+						FalseEvent?.Raise();
+					}
 				});
 			}
 		}

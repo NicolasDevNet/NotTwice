@@ -20,6 +20,11 @@ namespace Assets.com.nottwice.application.Runtime.Proxies
 			return Application.version;
 		}
 
+		public string GetPersistentDataPath()
+		{
+			return Application.persistentDataPath;
+		}
+
 		public void OnQuitApplication(Action onQuitApplication)
 		{
 			Application.quitting += onQuitApplication;

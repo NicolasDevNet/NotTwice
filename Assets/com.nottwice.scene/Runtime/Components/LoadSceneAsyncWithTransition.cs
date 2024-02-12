@@ -1,6 +1,4 @@
-﻿using Assets.com.nottwice.lifetime.Runtime;
-using Assets.com.nottwice.scene.Runtime.Proxies;
-using Assets.com.nottwice.scene.Runtime.ScriptableObjects;
+﻿using Assets.com.nottwice.scene.Runtime.ScriptableObjects;
 using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
 using NaughtyAttributes;
 using UnityEngine;
