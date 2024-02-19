@@ -22,7 +22,7 @@ namespace Assets.com.nottwice.data.Runtime.ScriptableObjects
 		[Required]
 		public StringVariable FileExtention;
 
-		[ReadOnly]
+		[Required]
 		public U Collection;
 
 		public ReactiveBoolVariableEvent IsLoadingEvent;
