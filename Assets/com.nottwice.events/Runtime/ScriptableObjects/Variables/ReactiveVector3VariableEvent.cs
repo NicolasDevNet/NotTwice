@@ -7,10 +7,8 @@ using UnityEngine;
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 {
 	[CreateAssetMenu(fileName = "ReactiveVector3VariableEvent", menuName = "NotTwice/Events/Variables/ReactiveVector3VariableEvent")]
-	public class ReactiveVector3VariableEvent : ReactiveVariableEvent
+	public class ReactiveVector3VariableEvent : ReactiveVariableEvent<Vector3ReactiveProperty, Vector3>
 	{
-		public Vector3ReactiveProperty Value;
-
 		public List<SerializableVector3Condition> Conditions;
 
 		public override void Subscribe()

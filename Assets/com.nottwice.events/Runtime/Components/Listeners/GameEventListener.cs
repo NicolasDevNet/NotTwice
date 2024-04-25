@@ -1,10 +1,11 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
+using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
 using Assets.com.nottwice.lifetime.Runtime;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.com.nottwice.events.Runtime.Components
+namespace Assets.com.nottwice.events.Runtime.Components.Listeners
 {
 	/// <summary>
 	/// Component for listening to an event and triggering the responses associated with it

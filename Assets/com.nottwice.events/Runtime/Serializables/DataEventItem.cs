@@ -1,4 +1,5 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
+using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
 
 namespace Assets.com.nottwice.events.Runtime.Serializables
 {

@@ -7,10 +7,8 @@ using UnityEngine;
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 {
 	[CreateAssetMenu(fileName = "ReactiveFloatVariableEvent", menuName = "NotTwice/Events/Variables/ReactiveFloatVariableEvent")]
-	public class ReactiveFloatVariableEvent : ReactiveVariableEvent
+	public class ReactiveFloatVariableEvent : ReactiveVariableEvent<FloatReactiveProperty, float>
 	{
-		public FloatReactiveProperty Value;
-
 		public List<SerializableFloatCondition> Conditions;
 
 		public override void Subscribe()

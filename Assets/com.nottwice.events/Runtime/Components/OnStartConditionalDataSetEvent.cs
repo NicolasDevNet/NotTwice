@@ -1,5 +1,6 @@
 ﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
 using Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections;
+using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
 using Assets.com.nottwice.events.Runtime.Serializables;
 using Assets.com.nottwice.lifetime.Runtime;
 using NaughtyAttributes;

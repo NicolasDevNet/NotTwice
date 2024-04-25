@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
+using System;
 using UniRx;
 using UnityEngine;
 

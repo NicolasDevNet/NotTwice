@@ -7,10 +7,8 @@ using UnityEngine;
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 {
 	[CreateAssetMenu(fileName = "ReactiveStringVariableEvent", menuName = "NotTwice/Events/Variables/ReactiveStringVariableEvent")]
-	public class ReactiveStringVariableEvent : ReactiveVariableEvent
+	public class ReactiveStringVariableEvent : ReactiveVariableEvent<StringReactiveProperty, string>
 	{
-		public StringReactiveProperty Value;
-
 		public List<SerializableStringCondition> Conditions;
 
 		public override void Subscribe()

@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 using NaughtyAttributes;
 using Assets.com.nottwice.lifetime.Runtime;
+using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
 
 namespace Assets.com.nottwice.events.Runtime.Components
 {

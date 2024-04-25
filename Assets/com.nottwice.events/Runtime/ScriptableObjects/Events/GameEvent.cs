@@ -1,8 +1,9 @@
 ﻿using Assets.com.nottwice.events.Runtime.Components;
+using Assets.com.nottwice.events.Runtime.Components.Listeners;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.com.nottwice.events.Runtime.ScriptableObjects
+namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Events
 {
 	[CreateAssetMenu(menuName = "NotTwice/Events/GameEvent")]
 	public class GameEvent : ScriptableObject

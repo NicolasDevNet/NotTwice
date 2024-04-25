@@ -1,4 +1,5 @@
-﻿using Assets.com.nottwice.serializables.Runtime.Operators;
+﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
+using Assets.com.nottwice.serializables.Runtime.Operators;
 using System.Linq;
 using UniRx;
 using UnityEngine;
@@ -6,13 +7,11 @@ using UnityEngine;
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 {
 	[CreateAssetMenu(fileName = "ReactiveBoolVariableEvent", menuName = "NotTwice/Events/Variables/ReactiveBoolVariableEvent")]
-	public class ReactiveBoolVariableEvent : ReactiveVariableEvent
+	public class ReactiveBoolVariableEvent : ReactiveVariableEvent<BoolReactiveProperty, bool>
 	{
-		public BoolReactiveProperty Value;
-
 		public SerializableBoolCondition Condition;
 
-		public GameEvent FalseEvent;
+		public ReactiveGameEvent<BoolReactiveProperty, bool> FalseEvent;
 
 		public override void Subscribe()
 		{
