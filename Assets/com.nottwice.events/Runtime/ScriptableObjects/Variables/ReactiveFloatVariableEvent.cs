@@ -19,9 +19,9 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 				{
 					Value.Where(_ => Conditions.All(cdn => cdn.IsTrue(Value.Value)));
 				}
-				_valueObserver = Value.Subscribe(_ => 
+				_valueObserver = Value.Subscribe(value => 
 				{
-					BoundEvent.Raise();
+					BoundEvent.Raise(value);
 				});
 			}
 		}

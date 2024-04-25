@@ -26,11 +26,11 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Variables
 				{
 					if(value)
 					{
-						BoundEvent?.Raise();
+						BoundEvent?.Raise(value);
 					}
 					else
 					{
-						FalseEvent?.Raise();
+						FalseEvent?.Raise(value);
 					}
 				});
 			}

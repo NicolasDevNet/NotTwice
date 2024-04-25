@@ -39,10 +39,10 @@ namespace Assets.com.nottwice.events.Runtime.Components.Listeners
 			VariableEvent.BoundEvent.UnregisterListener(this);
 		}
 
-		public void OnEventRaised()
+		public void OnEventRaised(U value)
 		{
 			_logger.Log(LogType.Log, $"Event raise: {VariableEvent.BoundEvent.name}");
-			Response?.Invoke(VariableEvent.Value.Value);
+			Response?.Invoke(value);
 		}
 	}
 }

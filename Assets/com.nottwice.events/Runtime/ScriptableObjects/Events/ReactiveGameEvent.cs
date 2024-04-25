@@ -21,11 +21,11 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Events
 			return _listeners.Count;
 		}
 
-		public void Raise()
+		public void Raise(U value)
 		{
 			for (int i = _listeners.Count - 1; i >= 0; i--)
 			{
-				_listeners[i].OnEventRaised();
+				_listeners[i].OnEventRaised(value);
 			}
 		}
 
