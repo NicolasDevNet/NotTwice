@@ -14,7 +14,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	public class OnPointerRightClickEvent : MonoBehaviour, IPointerClickHandler
 	{
 		[Required, Tooltip("Event to register with.")]
-		public GameEvent Event;
+		public SOGameEvent Event;
 
 		private ILogger _logger;
 

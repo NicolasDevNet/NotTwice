@@ -30,7 +30,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 
 		protected void OnEnable()
 		{
-			GameEvent targetEvent = GetTargetEvent();
+			SOGameEvent targetEvent = GetTargetEvent();
 
 			_logger.Log(LogType.Log, $"Start for {name} with event {targetEvent.name}");
 			targetEvent.Raise();
@@ -41,7 +41,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 			ConditionalItem = conditionalItem;
 		}
 
-		protected GameEvent GetTargetEvent()
+		protected SOGameEvent GetTargetEvent()
 		{
 			return DataEventItems.DataSet.Find(dei => dei.IsSameItem(ConditionalItem)).Event;
 		}

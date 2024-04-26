@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Events
 {
-	[CreateAssetMenu(menuName = "NotTwice/Events/GameEvent")]
-	public class GameEvent : ScriptableObject
+	[CreateAssetMenu(menuName = "NotTwice/Events/SOGameEvent")]
+	public class SOGameEvent : ScriptableObject
 	{
 		private List<GameEventListener> _listeners = new List<GameEventListener>();
 

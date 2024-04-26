@@ -1,5 +1,4 @@
-﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects;
-using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
+﻿using Assets.com.nottwice.events.Runtime.ScriptableObjects.Events;
 using Assets.com.nottwice.lifetime.Runtime;
 using NaughtyAttributes;
 using UnityEngine;
@@ -16,7 +15,7 @@ namespace Assets.com.nottwice.events.Runtime.Components.Listeners
 	public class GameEventListener : MonoBehaviour
 	{
 		[Required ,Tooltip("Event to register with.")]
-		public GameEvent Event;
+		public SOGameEvent Event;
 
 		[Tooltip("Response to invoke when Event is raised.")]
 		public UnityEvent Response;

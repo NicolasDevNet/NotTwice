@@ -12,9 +12,9 @@ namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Collections
 	{
 		public ReactiveCollection<T> DataSet = new ReactiveCollection<T>();
 
-		public GameEvent BoundEventAdd;
+		public SOGameEvent BoundEventAdd;
 
-		public GameEvent BoundEventRemove;
+		public SOGameEvent BoundEventRemove;
 
 		protected IDisposable _addObserver;
 		protected IDisposable _removeObserver;

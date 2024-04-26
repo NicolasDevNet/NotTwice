@@ -14,7 +14,7 @@ namespace Assets.com.nottwice.events.Runtime.Components
 	public class OnPointerEnterEvent : MonoBehaviour, IPointerEnterHandler
 	{
 		[Required, Tooltip("Event to register with.")]
-		public GameEvent Event;
+		public SOGameEvent Event;
 
 		private ILogger _logger;
 

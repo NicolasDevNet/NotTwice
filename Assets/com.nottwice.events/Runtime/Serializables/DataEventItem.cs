@@ -8,7 +8,7 @@ namespace Assets.com.nottwice.events.Runtime.Serializables
 	/// </summary>
 	public abstract class DataEventItem<T>
 	{
-		public GameEvent Event;
+		public SOGameEvent Event;
 
 		public T Item;
 
