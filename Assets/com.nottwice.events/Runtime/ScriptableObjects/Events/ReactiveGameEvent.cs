@@ -9,8 +9,6 @@ using UnityEngine;
 
 namespace Assets.com.nottwice.events.Runtime.ScriptableObjects.Events
 {
-
-	[CreateAssetMenu(menuName = "NotTwice/Events/GameEvent")]
 	public abstract class ReactiveGameEvent<T, U> : ScriptableObject
 		where T : ReactiveProperty<U>
 	{
