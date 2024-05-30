@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.com.nottwice.lifetime.Runtime;
+using UnityEngine;
 
 namespace Assets.com.nottwice.components.Runtime.UI
 {
@@ -11,9 +12,16 @@ namespace Assets.com.nottwice.components.Runtime.UI
 	{
 		public SpriteRenderer SpriteRendererComponent;
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void ChangeFromSpriteSource(Sprite sprite)
 		{
-			Debug.Log($"New sprite for component {SpriteRendererComponent.name}: {sprite.name}");
+			_logger.Log(LogType.Log, $"New sprite for component {SpriteRendererComponent.name}: {sprite.name}");
 
 			SpriteRendererComponent.sprite = sprite;
 		}

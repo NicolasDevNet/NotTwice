@@ -1,4 +1,5 @@
 ﻿using Assets.com.nottwice.application.Runtime.Proxies;
+using Assets.com.nottwice.lifetime.Runtime;
 using TMPro;
 using UnityEngine;
 
@@ -13,23 +14,14 @@ namespace Assets.com.nottwice.application.Runtime.Components
 	{
 		private TextMeshProUGUI _textComponent;
 
-		private IApplication _applicationInternal;
+		private IApplication _application;
 
-		private IApplication _application
+		private ILogger _logger;
+
+		public void Awake()
 		{
-			get
-			{
-				if(_applicationInternal == null )
-				{
-					_applicationInternal = new DefaultApplicationProxy();
-				}
-
-				return _applicationInternal;
-			}
-			set
-			{
-				_applicationInternal = value;
-			}
+			_application = AppContainer.Get<IApplication>();
+			_logger = AppContainer.Get<ILogger>();
 		}
 
 		public void OnEnable()
@@ -41,7 +33,7 @@ namespace Assets.com.nottwice.application.Runtime.Components
 
 			_textComponent.text += _application.GetApplicationVersion();
 
-			Debug.Log("The application version is displayed");
+			_logger.Log(LogType.Log, "The application version is displayed");
 		}
 	}
 }

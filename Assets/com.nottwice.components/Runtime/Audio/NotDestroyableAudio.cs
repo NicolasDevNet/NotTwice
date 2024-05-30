@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.com.nottwice.lifetime.Runtime;
+using UnityEngine;
 
 namespace Assets.com.nottwice.components.Runtime.Audio
 {
@@ -13,6 +14,13 @@ namespace Assets.com.nottwice.components.Runtime.Audio
 
 		public AudioSource AudioSource { get; private set; }
 
+		private ILogger _logger;
+
+		public void Awake()
+		{
+			_logger = AppContainer.Get<ILogger>();
+		}
+
 		public void OnEnable()
 		{
 			//If there is no audio component, differentiation by audio source name is not possible.
@@ -24,7 +32,7 @@ namespace Assets.com.nottwice.components.Runtime.Audio
 			//If we have no instance, we take the current one by default
 			if (_instance == null)
 			{
-				Debug.Log("The first Audio instance is retained.");
+				_logger.Log(LogType.Log, "The first Audio instance is retained.");
 				_instance = this;
 				AudioSource = component;
 				DontDestroyOnLoad(_instance);
@@ -34,14 +42,14 @@ namespace Assets.com.nottwice.components.Runtime.Audio
 				//If an instance exists, we check if the new instance has a different music to play it or keep the old component.
 				if (_instance.AudioSource.clip.name != component.clip.name)
 				{
-					Debug.Log("The old Audio instance is replaced.");
+					_logger.Log(LogType.Log, "The old Audio instance is replaced.");
 					DestroyImmediate(_instance.gameObject);
 					_instance = this;
 					AudioSource = component;
 				}
 				else
 				{
-					Debug.Log("The old Audio instance is retained.");
+					_logger.Log(LogType.Log, "The old Audio instance is retained.");
 					DestroyImmediate(this.gameObject);
 				}
 			}

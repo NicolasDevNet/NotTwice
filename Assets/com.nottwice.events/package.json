@@ -1,14 +1,10 @@
 {
   "name": "com.nottwice.events",
-<<<<<<< Updated upstream
   "version": "1.0.25",
-=======
-  "version": "1.1.20",
->>>>>>> Stashed changes
   "unity": "2021.3",
   "unityRelease": "15f1",
   "displayName": "NotTwice Events",
-  "description": "NotTwice Events provides scriptable components and objects to facilitate event management in Unity",
+  "description": "NotTwice Events fournit des composants et objets scriptables pour faciliter la gestion des évènements dans Unity",
   "keywords": [
     "components",
     "scriptableobjects",
@@ -19,9 +15,10 @@
     "name": "NotTwice, NFO."
   },
   "dependencies": {
-	  "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+	  "com.neuecc.unirx": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
 	  "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
-    	  "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
-    	  "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+	  "com.nottwice.serializables": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.serializables",
+    "com.nottwice.lifetime": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.lifetime",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
   }
 }

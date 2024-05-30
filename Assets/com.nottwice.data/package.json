@@ -1,0 +1,23 @@
+{
+  "name": "com.nottwice.data",
+  "version": "1.0.4",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "displayName": "NotTwice Data",
+  "description": "NotTwice Application fournit des composants et objets scriptables pour faciliter la gestion des données dans une application Unity",
+  "keywords": [
+    "data",
+    "playerprefs"
+  ],
+  "author": {
+    "name": "NotTwice, NFO."
+  },
+  "dependencies": {
+	  "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
+	  "com.nottwice.application": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.application",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+    "com.neuecc.unirx": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
+    "com.nottwice.events": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events",
+    "com.nottwice.lifetime": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.lifetime"
+  }
+}

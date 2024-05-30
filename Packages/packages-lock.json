@@ -9,13 +9,6 @@
       },
       "hash": "87ab0c982c7f1fb87a0a8a131fc55a2577957edf"
     },
-    "com.cysharp.unitask": {
-      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
-    },
     "com.dbrizov.naughtyattributes": {
       "version": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
       "depth": 0,
@@ -31,11 +24,11 @@
       "hash": "28808fdde715dd7a2ef3adfcfe929114fe73403e"
     },
     "com.neuecc.unirx": {
-      "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
+      "version": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.neuecc.unirx",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "6baeccf6c544c155497164327cca72f28163a578"
+      "hash": "28808fdde715dd7a2ef3adfcfe929114fe73403e"
     },
     "com.unity.2d.animation": {
       "version": "7.0.9",
