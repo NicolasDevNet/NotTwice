@@ -1,5 +1,4 @@
 ﻿using Assets.com.nottwice.application.Runtime.Proxies;
-using Assets.com.nottwice.lifetime.Runtime;
 using UnityEngine;
 
 namespace Assets.com.nottwice.application.Runtime.Components
@@ -11,19 +10,28 @@ namespace Assets.com.nottwice.application.Runtime.Components
 	[DisallowMultipleComponent]
 	public class QuitApplication : MonoBehaviour
 	{
-		private IApplication _application;
+		private IApplication _applicationInternal;
 
-		private ILogger _logger;
-
-		public void Awake()
+		private IApplication _application
 		{
-			_application = AppContainer.Get<IApplication>();
-			_logger = AppContainer.Get<ILogger>();
+			get
+			{
+				if (_applicationInternal == null)
+				{
+					_applicationInternal = new DefaultApplicationProxy();
+				}
+
+				return _applicationInternal;
+			}
+			set
+			{
+				_applicationInternal = value;
+			}
 		}
 
 		public void ExecuteQuitApplication()
 		{
-			_logger.Log(LogType.Log ,"Try to quit application");
+			Debug.Log("Try to quit application");
 			_application.Quit();
 		}
 	}

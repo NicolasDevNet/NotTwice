@@ -1,8 +1,7 @@
-﻿using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
-using Assets.com.nottwice.lifetime.Runtime;
+using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 
 namespace Assets.com.nottwice.components.Runtime.UI
 {
@@ -14,18 +13,11 @@ namespace Assets.com.nottwice.components.Runtime.UI
 	public class FollowingYTargetUI : MonoBehaviour
 	{
 		[Required]
-		public FloatVariable AnimationDuration;
-
-		private ILogger _logger;
-
-		public void Awake()
-		{
-			_logger = AppContainer.Get<ILogger>();
-		}
+		public NTFloatVariable AnimationDuration;
 
 		public void ExecuteFollow(Transform target)
 		{
-			_logger.Log(LogType.Log, $"{name} is following {target.name} at Y:{target.position.y}");
+			Debug.Log($"{name} is following {target.name} at Y:{target.position.y}");
 			transform.DOLocalMoveY(target.localPosition.y, AnimationDuration.Value);
 		}
 	}

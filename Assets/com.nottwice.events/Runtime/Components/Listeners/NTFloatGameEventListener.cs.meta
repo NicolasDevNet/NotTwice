@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/com.nottwice.events/Runtime/Components/EventFlowPart.cs.meta
+guid: 5dc0e271215e0e94fb5e082fc45e970d
+=======
+guid: a389aef3ed09230449d154e137542cdc
+>>>>>>> parent of ac5eb84 (Revert "feat(clean): Nettoyage et refonte de certains packages"):Assets/com.nottwice.events/Runtime/Components/Listeners/NTFloatGameEventListener.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
