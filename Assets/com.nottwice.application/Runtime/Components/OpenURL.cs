@@ -1,6 +1,5 @@
 ﻿using Assets.com.nottwice.application.Runtime.Proxies;
-using Assets.com.nottwice.lifetime.Runtime;
-using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
+using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using UnityEngine;
 
 namespace Assets.com.nottwice.application.Runtime.Components
@@ -13,16 +12,25 @@ namespace Assets.com.nottwice.application.Runtime.Components
 	public class OpenURL : MonoBehaviour
 	{
 		[Tooltip("Optional parameter used if the use of the component requires a method without parameters.")]
-		public StringVariable UrlToRedirect;
+		public NTStringVariable UrlToRedirect;
 
-		private IApplication _application;
+		private IApplication _applicationInternal;
 
-		private ILogger _logger;
-
-		public void Awake()
+		private IApplication _application
 		{
-			_application = AppContainer.Get<IApplication>();
-			_logger = AppContainer.Get<ILogger>();
+			get
+			{
+				if (_applicationInternal == null)
+				{
+					_applicationInternal = new DefaultApplicationProxy();
+				}
+
+				return _applicationInternal;
+			}
+			set
+			{
+				_applicationInternal = value;
+			}
 		}
 
 		public void ExecuteOpeningURL()
@@ -35,9 +43,9 @@ namespace Assets.com.nottwice.application.Runtime.Components
 			ExecuteOpeningURL(UrlToRedirect);
 		}
 
-		public void ExecuteOpeningURL(StringVariable targetUrl)
+		public void ExecuteOpeningURL(NTStringVariable targetUrl)
 		{
-			_logger.Log(LogType.Log, $"Redirect to {targetUrl.Value}");
+			Debug.Log($"Redirect to {targetUrl.Value}");
 			_application.OpenURL(targetUrl.Value);
 		}
 	}

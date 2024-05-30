@@ -1,5 +1,4 @@
-﻿using Assets.com.nottwice.lifetime.Runtime;
-using Assets.com.nottwice.scriptableobjects.Runtime.Variables.Typed;
+﻿using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,26 +13,19 @@ namespace Assets.com.nottwice.components.Runtime.UI
 	{
 		public Slider SliderComponent;
 
-		private ILogger _logger;
-
-		public void Awake()
-		{
-			_logger = AppContainer.Get<ILogger>();
-		}
-
-		public void ChangeFromIntVariable(Int32Variable int32Variable)
+		public void ChangeFromIntVariable(NTInt32Variable int32Variable)
 		{
 			ChangeDropdownValue(int32Variable.Value, int32Variable.name);
 		}
 
-		public void ChangeFromIntVariable(FloatVariable floatVariable)
+		public void ChangeFromIntVariable(NTFloatVariable floatVariable)
 		{
 			ChangeDropdownValue(floatVariable.Value, floatVariable.name);
 		}
 
 		protected void ChangeDropdownValue(float value, string componentName)
 		{
-			_logger.Log(LogType.Log, $"New value for component {SliderComponent.name}: {value} | Source: {componentName}");
+			Debug.Log($"New value for component {SliderComponent.name}: {value} | Source: {componentName}");
 
 			SliderComponent.value = value;
 		}
