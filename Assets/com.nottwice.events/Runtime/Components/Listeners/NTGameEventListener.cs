@@ -13,7 +13,7 @@ namespace NotTwice.Events.Runtime.Components.Listeners
     {
         public override void OnEventRaised()
         {
-            Event?.Raise();
+            Response?.Invoke();
         }
     }
 }

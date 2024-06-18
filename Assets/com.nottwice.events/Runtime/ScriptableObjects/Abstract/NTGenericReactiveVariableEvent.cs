@@ -33,6 +33,7 @@ namespace NotTwice.Events.Runtime.ScriptableObjects.Abstract
 		{
 			_valueObserver = Value.Subscribe(value =>
 			{
+				Debug.Log(BoundEvent);
 				BoundEvent?.Raise(value);
 			});
 		}

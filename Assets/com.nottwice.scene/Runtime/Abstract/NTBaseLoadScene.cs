@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
+﻿
 using NotTwice.Scene.Runtime.Serializables;
 using System;
 using UnityEngine.SceneManagement;
@@ -15,22 +15,20 @@ namespace NotTwice.Scene.Runtime.Abstract
 		/// </summary>
 		/// <param name="sceneName">Name of scene to load</param>
 		/// <param name="loadSceneMode">Scene loading mode</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
-		public abstract UniTask ExecuteAsync(string sceneName, LoadSceneMode loadSceneMode);
+		public abstract void ExecuteAsync(string sceneName, LoadSceneMode loadSceneMode);
 
 		/// <summary>
 		/// Method for loading a scene asynchronously
 		/// </summary>
 		/// <param name="sceneInput">Scene information required for loading</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
-		public abstract UniTask ExecuteAsync(NTLoadSceneInput sceneInput);
+		public abstract void ExecuteAsync(NTSerializableSceneInput sceneInput);
 
 		/// <summary>
 		/// Method for checking the validity of scene input
 		/// </summary>
 		/// <param name="sceneInput">The body to be checked</param>
 		/// <exception cref="ArgumentNullException">Exception thrown when instance or scene name is null</exception>
-		public void ValidateSceneInput(NTLoadSceneInput sceneInput)
+		public void ValidateSceneInput(NTSerializableSceneInput sceneInput)
 		{
 			if (sceneInput == null)
 			{

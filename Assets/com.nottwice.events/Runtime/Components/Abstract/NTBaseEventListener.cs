@@ -33,12 +33,12 @@ namespace NotTwice.Events.Runtime.Components.Abstract
 
         #region LifeCycle
 
-        protected void OnEnable()
+        protected virtual void OnEnable()
         {
             Event.RegisterListener(this);
         }
 
-        protected void OnDisable()
+        protected virtual void OnDisable()
         {
             Event.UnregisterListener(this);
         }

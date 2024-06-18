@@ -16,20 +16,28 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// Method for unloading a scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
 		/// </summary>
 		/// <param name="sceneName">Scene name required to unload the scene</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(NTStringVariable sceneName)
+		public override void ExecuteAsync(NTStringVariable sceneName)
 		{
-			await ExecuteAsync(sceneName.Value);
+			ExecuteAsync(sceneName.Value);
+		}
+
+		/// <summary>
+		/// Method for loading a scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
+		/// </summary>
+		/// <param name="sceneInput">Input to use for loading or unloading</param>
+		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
+		public override void ExecuteAsync(NTScriptableSceneInput sceneInput)
+		{
+			ExecuteAsync(sceneInput.SceneName);
 		}
 
 		/// <summary>
 		/// Method for unloading a scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
 		/// </summary>
 		/// <param name="sceneName">Scene name required to unload the scene</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(string sceneName)
+		public override async void ExecuteAsync(string sceneName)
 		{
 			Debug.Log($"Unload scene {sceneName} asynchronously");
 

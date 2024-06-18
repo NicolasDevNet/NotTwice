@@ -24,8 +24,8 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// <summary>
 		/// Transition scene required to make the transition
 		/// </summary>
-		[Required, Tooltip("Transition scene required to make the transition")]
-		public NTLoadSceneInput TransitionScene;
+		[Tooltip("Transition scene required to make the transition")]
+		public NTSerializableSceneInput TransitionScene;
 
 		/// <summary>
 		/// Previous scene to be unloaded
@@ -56,11 +56,20 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// <para>The loading mode for this method is <see cref="LoadSceneMode.Single"/> by default</para>
 		/// </summary>
 		/// <param name="sceneName">Scene name required to load the scene with a scene transition</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(NTStringVariable sceneName)
+		public override void ExecuteAsync(NTStringVariable sceneName)
 		{
-			await ExecuteAsync(sceneName.Value, LoadSceneMode.Single);
+			ExecuteAsync(sceneName.Value, LoadSceneMode.Single);
+		}
+
+		/// <summary>
+		/// Method for loading a scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
+		/// </summary>
+		/// <param name="sceneInput">Input to use for loading or unloading</param>
+		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
+		public override void ExecuteAsync(NTScriptableSceneInput sceneInput)
+		{
+			ExecuteAsync(sceneInput.SceneName, sceneInput.LoadSceneMode);
 		}
 
 		/// <summary>
@@ -68,11 +77,10 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// <para>The loading mode for this method is <see cref="LoadSceneMode.Single"/> by default</para>
 		/// </summary>
 		/// <param name="sceneName">Scene name required to load the scene with a scene transition</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(string sceneName)
+		public override void ExecuteAsync(string sceneName)
 		{
-			await ExecuteAsync(sceneName, LoadSceneMode.Single);
+			ExecuteAsync(sceneName, LoadSceneMode.Single);
 		}
 
 		/// <summary>
@@ -80,11 +88,10 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// </summary>
 		/// <param name="sceneName">Scene name required to load the scene with a scene transition</param>
 		/// <param name="loadSceneMode">Scene loading method <see cref="LoadSceneMode"/></param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(string sceneName, LoadSceneMode loadSceneMode)
+		public override void ExecuteAsync(string sceneName, LoadSceneMode loadSceneMode)
 		{
-			await ExecuteAsync(new NTLoadSceneInput()
+			ExecuteAsync(new NTSerializableSceneInput()
 			{
 				SceneName = sceneName,
 				LoadSceneMode = loadSceneMode
@@ -94,10 +101,9 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// <summary>
 		/// Method for loading a scene asynchronously, with automatic loading of the targeted scene and possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
 		/// </summary>
-		/// <param name="sceneInput">Information required to load the scene <see cref="NTLoadSceneInput"/></param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
+		/// <param name="sceneInput">Information required to load the scene <see cref="NTSerializableSceneInput"/></param>
 		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
-		public override async UniTask ExecuteAsync(NTLoadSceneInput sceneInput)
+		public override async void ExecuteAsync(NTSerializableSceneInput sceneInput)
 		{
 			ValidateSceneInput(sceneInput);
 
@@ -121,8 +127,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		/// <summary>
 		/// Method for loading the target scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
 		/// </summary>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
-		public async UniTask LoadTargetScene()
+		public async void LoadTargetScene()
 		{
 			Debug.Log($"Load scene {TargetScene} asynchronously with a {LoadSceneMode.Single} mode");
 
@@ -141,7 +146,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 			}
 		}
 
-		private async void OnTransitionSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
+		private void OnTransitionSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
 		{
 			TransitionSceneLoaded = true;
 
@@ -154,11 +159,11 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 				RemoveListeners();
 
-				await LoadTargetScene();
+				LoadTargetScene();
 			}
 		}
 
-		private async void OnPreviousSceneUnloaded(UnityEngine.SceneManagement.Scene scene)
+		private void OnPreviousSceneUnloaded(UnityEngine.SceneManagement.Scene scene)
 		{
 			PreviousSceneUnloaded = true;
 
@@ -171,7 +176,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 				RemoveListeners();
 
-				await LoadTargetScene();
+				LoadTargetScene();
 			}
 		}
 

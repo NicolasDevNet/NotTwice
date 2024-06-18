@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01392d012534e640bb05498ed11d5f3, type: 3}
+  m_Name: LoadSceneWithTransitionAsync_Loading
+  m_EditorClassIdentifier: 
+  ProgressHandler: {fileID: 11400000, guid: f14b647c124b2374ea5921d0d70468cb, type: 2}
+  AutoLoadTargetScene: 1
+  TransitionScene:
+    LoadSceneMode: 0
+    SceneName: TransitionScene
+  PreviousScene: 
+  TargetScene: 
+  TransitionSceneLoaded: 0
+  PreviousSceneUnloaded: 0

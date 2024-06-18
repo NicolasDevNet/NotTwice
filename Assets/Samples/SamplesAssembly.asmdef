@@ -1,0 +1,19 @@
+{
+    "name": "SamplesAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:baea484d637920747bde0709c842a409",
+        "GUID:d9f5f108a83d389449a13332573f5e26",
+        "GUID:b6e89c0d8a5f6d442a1cd2efa206e1be",
+        "GUID:277e6cbfee320a64ea12e4c404fde95e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

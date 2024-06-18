@@ -1,6 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
+﻿using NaughtyAttributes;
 using NotTwice.Scene.Runtime.Proxies;
+using NotTwice.Scene.Runtime.ScriptableObjects;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using System;
 using UnityEngine;
@@ -44,15 +44,19 @@ namespace NotTwice.Scene.Runtime.Abstract
 		/// Method for loading or unloading a scene asynchronously
 		/// </summary>
 		/// <param name="sceneName">Name of scene to load or unload</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
-		public abstract UniTask ExecuteAsync(NTStringVariable sceneName);
+		public abstract void ExecuteAsync(NTStringVariable sceneName);
+
+		/// <summary>
+		/// Method for loading or unloading a scene asynchronously
+		/// </summary>
+		/// <param name="sceneInput">Input to use for loading or unloading</param>
+		public abstract void ExecuteAsync(NTScriptableSceneInput sceneInput);
 
 		/// <summary>
 		/// Method for loading or unloading a scene asynchronously
 		/// </summary>
 		/// <param name="sceneName">Name of scene to load or unload</param>
-		/// <returns>The Task <see cref="UniTask"/> resulting from the operation.</returns>
-		public abstract UniTask ExecuteAsync(string sceneName);
+		public abstract void ExecuteAsync(string sceneName);
 
 		public void ValidateSceneName(string sceneName)
 		{

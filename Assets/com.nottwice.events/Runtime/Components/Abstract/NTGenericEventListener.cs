@@ -27,5 +27,19 @@ namespace NotTwice.Events.Runtime.Components.Abstract
         {
             throw new NotImplementedException("Method not implemented for an event with no upstream value");
         }
-    }
+
+		#region LifeCycle
+
+		protected override void OnEnable()
+		{
+			Event.RegisterListener(this);
+		}
+
+		protected override void OnDisable()
+		{
+			Event.UnregisterListener(this);
+		}
+
+		#endregion
+	}
 }

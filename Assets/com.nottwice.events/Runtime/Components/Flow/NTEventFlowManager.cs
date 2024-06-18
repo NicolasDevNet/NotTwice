@@ -29,7 +29,7 @@ namespace NotTwice.Events.Runtime.Components.Flow
         /// Asynchronous method for stream execution
         /// </summary>
         /// <returns>The task resulting from the execution of this flow</returns>
-        public async UniTask Execute()
+        public async void Execute()
 		{
 			await WaitForFlowParts();
         }

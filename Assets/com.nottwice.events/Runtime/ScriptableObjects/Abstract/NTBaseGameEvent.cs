@@ -14,7 +14,7 @@ namespace NotTwice.Events.Runtime.ScriptableObjects.Abstract
         where T : NTBaseGameEvent<T, U>
         where U : UnityEventBase
     {
-        private List<NTBaseEventListener<T, U>> _listeners = new List<NTBaseEventListener<T, U>>();
+        protected List<NTBaseEventListener<T, U>> _listeners = new List<NTBaseEventListener<T, U>>();
 
         /// <summary>
         /// Method for raising this event and notifying all listeners
