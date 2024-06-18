@@ -13,6 +13,6 @@
   },
   "dependencies": {
 	  "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
-	  "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+	  "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
   }
 }

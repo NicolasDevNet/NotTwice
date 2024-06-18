@@ -1,21 +1,27 @@
 # NotTwice
-NotTwice est une suite de librairies dont l’objectif est de fournir des outils d’amélioration de qualité de vie pour un développeur Unity.
-De manière générale, la librairie vise à mieux structurer le code d'un jeu et à créer une séparation nette (dans la mesure du possible) entre les scripts et l'éditeur Unity.
+NotTwice is a suite of libraries designed to provide quality-of-life tools for Unity developers. In general terms, the library aims to better structure game code and create a clear separation (wherever possible) between scripts and the Unity editor. It promotes component reusability and helps to increase development speed and memory preservation through the use of scriptable objects.
 
-Add from GIT URL in Unity:
+## Installation
+To install a package, use this URL via Unity UPM Package Manager:
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.application
+https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.<packagename>
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects
+Packages available:
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.serializables
+- [components](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.components)
+- [events](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.events)
+- [scene](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.scene)
+- [scriptableobjects](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.scriptableobjects)
+- [serializables](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.serializables)
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.audio
+## Contribution
+[Nicolas FOUQUE](https://nfodevfreelance.fr/)
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events
+## Support
+[Nicolas FOUQUE](mailto:n.fouquedev@outlook.fr)
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scene
+## Tickets
+[Tickets](https://github.com/NicolasDevNet/NotTwice/issues)
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.ui
-
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.data
+## License
+This project is open-source. Refer to the LICENSE file for more information.
