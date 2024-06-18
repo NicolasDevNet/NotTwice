@@ -4,7 +4,7 @@ NotTwice is a suite of libraries designed to provide quality-of-life tools for U
 ## Installation
 To install a package, use this URL via Unity UPM Package Manager:
 
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.<packagename>
+https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.{packagename}
 
 Packages available:
 
