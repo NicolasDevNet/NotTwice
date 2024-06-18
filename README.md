@@ -21,6 +21,8 @@ Packages available:
 [Nicolas FOUQUE](mailto:n.fouquedev@outlook.fr)
 
 ## Tickets
+When creating a ticket, please mention the target package.
+
 [Tickets](https://github.com/NicolasDevNet/NotTwice/issues)
 
 ## License
