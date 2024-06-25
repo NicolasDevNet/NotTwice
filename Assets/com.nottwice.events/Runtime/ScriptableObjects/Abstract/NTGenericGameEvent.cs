@@ -1,6 +1,5 @@
 ﻿using NotTwice.Events.Runtime.Components.Abstract;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine.Events;
 
 namespace NotTwice.Events.Runtime.ScriptableObjects.Abstract
