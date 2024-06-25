@@ -13,6 +13,7 @@ Packages available:
 - [scene](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.scene)
 - [scriptableobjects](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.scriptableobjects)
 - [serializables](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.serializables)
+- [proxies](https://github.com/NicolasDevNet/NotTwice/tree/main/Assets/com.nottwice.proxies)
 
 ## Contribution
 [Nicolas FOUQUE](https://nfodevfreelance.fr/)
