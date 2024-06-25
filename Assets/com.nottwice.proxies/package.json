@@ -4,7 +4,7 @@
   "unity": "2021.3",
   "unityRelease": "15f1",
   "displayName": "NotTwice Proxies",
-  "description": "NotTwice Proxies provides various classes and interfaces that make the projects in which they are used more testable. These include proxies for PlayersPrefs, File, Directory, Ect...
+  "description": "NotTwice Proxies provides various classes and interfaces that make the projects in which they are used more testable. These include proxies for PlayersPrefs, File, Directory, Ect..."
   "keywords": [
     "proxies",
     "static",
