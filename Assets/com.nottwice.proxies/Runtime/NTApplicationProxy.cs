@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.Application;
 
-namespace Assets.com.nottwice.proxies.Runtime
+namespace NotTwice.Proxies.Runtime
 {
 	/// <summary>
 	/// Proxy acting as a flat pass for <see cref="Application"/> static methods.
