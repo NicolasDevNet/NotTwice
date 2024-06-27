@@ -14,6 +14,7 @@ https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.component
 
 - "com.unity.textmeshpro":"3.0.6"
 - "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects"
+- "com.nottwice.proxies": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.proxies"
 - "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
 
 ## Contribution

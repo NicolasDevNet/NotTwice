@@ -1,13 +1,15 @@
-﻿using UnityEngine.SceneManagement;
+﻿using NotTwice.Proxies.Runtime.Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
-namespace NotTwice.Scene.Runtime.Proxies
+namespace NotTwice.Proxies.Runtime
 {
 	/// <summary>
-	/// Proxy for the SceneManager, making the code that depends on it testable
+	/// Proxy acting as a flat pass for <see cref="SceneManager"/> static methods.
+	/// <para>TODO: Complete implementation of all <see cref="SceneManager"/> methods. </para>
 	/// </summary>
-	public class NTDefaultSceneProxy : INTSceneManager
+	public class NTSceneManagerProxy : INTSceneManager
 	{
 		public AsyncOperation LoadSceneAsync(string sceneName)
 		{
@@ -24,27 +26,27 @@ namespace NotTwice.Scene.Runtime.Proxies
 			return SceneManager.UnloadSceneAsync(sceneName);
 		}
 
-		public void AddSceneLoadedEvent(UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> unityAction)
+		public void AddSceneLoadedEvent(UnityAction<Scene, LoadSceneMode> unityAction)
 		{
 			SceneManager.sceneLoaded += unityAction;
 		}
 
-		public void RemoveSceneLoadedEvent(UnityAction<UnityEngine.SceneManagement.Scene, LoadSceneMode> unityAction)
+		public void RemoveSceneLoadedEvent(UnityAction<Scene, LoadSceneMode> unityAction)
 		{
 			SceneManager.sceneLoaded -= unityAction;
 		}
 
-		public void AddSceneUnloadedEvent(UnityAction<UnityEngine.SceneManagement.Scene> unityAction)
+		public void AddSceneUnloadedEvent(UnityAction<Scene> unityAction)
 		{
 			SceneManager.sceneUnloaded += unityAction;
 		}
 
-		public void RemoveSceneUnloadedEvent(UnityAction<UnityEngine.SceneManagement.Scene> unityAction)
+		public void RemoveSceneUnloadedEvent(UnityAction<Scene> unityAction)
 		{
 			SceneManager.sceneUnloaded -= unityAction;
 		}
 
-		public UnityEngine.SceneManagement.Scene GetActiveScene()
+		public Scene GetActiveScene()
 		{
 			return SceneManager.GetActiveScene();
 		}

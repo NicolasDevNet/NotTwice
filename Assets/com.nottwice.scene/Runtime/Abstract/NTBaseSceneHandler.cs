@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
-using NotTwice.Scene.Runtime.Proxies;
+using NotTwice.Proxies.Runtime;
+using NotTwice.Proxies.Runtime.Interfaces;
 using NotTwice.Scene.Runtime.ScriptableObjects;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using System;
@@ -29,7 +30,7 @@ namespace NotTwice.Scene.Runtime.Abstract
 			{
 				if (_sceneManagerInternal == null)
 				{
-					_sceneManagerInternal = new NTDefaultSceneProxy();
+					_sceneManagerInternal = new NTSceneManagerProxy();
 				}
 
 				return _sceneManagerInternal;

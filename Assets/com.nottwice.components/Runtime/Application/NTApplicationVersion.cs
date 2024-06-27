@@ -1,5 +1,5 @@
-﻿using NaughtyAttributes;
-using NotTwice.Components.Runtime.Proxies;
+﻿using NotTwice.Proxies.Runtime;
+using NotTwice.Proxies.Runtime.Interfaces;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +21,7 @@ namespace NotTwice.Components.Runtime.Application
 			{
 				if(_applicationInternal == null )
 				{
-					_applicationInternal = new NTDefaultApplicationProxy();
+					_applicationInternal = new NTApplicationProxy();
 				}
 
 				return _applicationInternal;
@@ -34,7 +34,7 @@ namespace NotTwice.Components.Runtime.Application
 
 		public void OnEnable()
 		{
-			GetComponent<TMP_Text>().text += Application.GetApplicationVersion();
+			GetComponent<TMP_Text>().text += Application.Version;
 
 			Debug.Log("The application version is displayed");
 		}

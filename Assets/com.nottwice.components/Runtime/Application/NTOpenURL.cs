@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
-using NotTwice.Components.Runtime.Proxies;
+using NotTwice.Proxies.Runtime;
+using NotTwice.Proxies.Runtime.Interfaces;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace NotTwice.Components.Runtime.Application
 			{
 				if (_applicationInternal == null)
 				{
-					_applicationInternal = new NTDefaultApplicationProxy();
+					_applicationInternal = new NTApplicationProxy();
 				}
 
 				return _applicationInternal;
