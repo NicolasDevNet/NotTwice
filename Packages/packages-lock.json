@@ -23,13 +23,6 @@
       "dependencies": {},
       "hash": "8a8fa5a9659a6d63f196391c71e06c4286c8acd7"
     },
-    "com.demigiant.dotween": {
-      "version": "https://github.com/NicolasDevNet/AssetsCollection.git?path=com.demigiant.dotween",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "28808fdde715dd7a2ef3adfcfe929114fe73403e"
-    },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
       "depth": 0,
