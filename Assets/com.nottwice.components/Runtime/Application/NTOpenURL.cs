@@ -16,25 +16,6 @@ namespace NotTwice.Components.Runtime.Application
 		[Expandable ,Tooltip("Optional parameter used if the use of the component requires a method without parameters.")]
 		public NTStringVariable UrlToRedirect;
 
-		private INTApplication _applicationInternal;
-
-		public INTApplication Application
-		{
-			private get
-			{
-				if (_applicationInternal == null)
-				{
-					_applicationInternal = new NTApplicationProxy();
-				}
-
-				return _applicationInternal;
-			}
-			set
-			{
-				_applicationInternal = value;
-			}
-		}
-
         /// <summary>
         /// Method for opening a URL from the <see cref="NTStringVariable"/> associated with the component.
         /// </summary>
@@ -54,7 +35,7 @@ namespace NotTwice.Components.Runtime.Application
         public void ExecuteOpeningURL(NTStringVariable targetUrl)
 		{
 			Debug.Log($"Redirect to {targetUrl.Value}");
-			Application.OpenURL(targetUrl.Value);
+			NTProxiesProvider.Application.OpenURL(targetUrl.Value);
 		}
 	}
 }

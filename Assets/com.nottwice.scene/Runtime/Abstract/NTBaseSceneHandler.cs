@@ -19,28 +19,6 @@ namespace NotTwice.Scene.Runtime.Abstract
 		[Expandable ,Tooltip("Optional scene loading progress manager")]
 		public NTBaseSceneProgressHandler ProgressHandler;
 
-		private INTSceneManager _sceneManagerInternal;
-
-		/// <summary>
-		/// Scene manager used to perform scene operations, by default it is <see cref="NTDefaultSceneProxy"/>
-		/// </summary>
-		protected INTSceneManager _sceneManager
-		{
-			get
-			{
-				if (_sceneManagerInternal == null)
-				{
-					_sceneManagerInternal = new NTSceneManagerProxy();
-				}
-
-				return _sceneManagerInternal;
-			}
-			set
-			{
-				_sceneManagerInternal = value;
-			}
-		}
-
 		/// <summary>
 		/// Method for loading or unloading a scene asynchronously
 		/// </summary>

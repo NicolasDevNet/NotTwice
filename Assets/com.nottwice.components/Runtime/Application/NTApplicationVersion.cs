@@ -13,28 +13,9 @@ namespace NotTwice.Components.Runtime.Application
 	[RequireComponent(typeof(TMP_Text))]
 	public class NTApplicationVersion : MonoBehaviour
 	{
-		private INTApplication _applicationInternal;
-
-		public INTApplication Application
-		{
-			private get
-			{
-				if(_applicationInternal == null )
-				{
-					_applicationInternal = new NTApplicationProxy();
-				}
-
-				return _applicationInternal;
-			}
-			set
-			{
-				_applicationInternal = value;
-			}
-		}
-
 		public void OnEnable()
 		{
-			GetComponent<TMP_Text>().text += Application.Version;
+			GetComponent<TMP_Text>().text += NTProxiesProvider.Application.Version;
 
 			Debug.Log("The application version is displayed");
 		}

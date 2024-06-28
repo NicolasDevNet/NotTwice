@@ -6,7 +6,7 @@ namespace NotTwice.Scene.Runtime
 	/// <summary>
 	/// Internal constant class dedicated to static resource pooling
 	/// </summary>
-	internal static class Constants
+	internal static class NTConstants
 	{
 		/// <summary>
 		/// Collection of loading modes for a scene

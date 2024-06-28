@@ -26,7 +26,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 		private DropdownList<LoadSceneMode> GetLoadSceneModes()
 		{
-			return Constants.LoadSceneModes;
+			return NTConstants.LoadSceneModes;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using NotTwice.Proxies.Runtime;
 using NotTwice.Scene.Runtime.Abstract;
 using NotTwice.Scene.Runtime.Serializables;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
@@ -72,7 +73,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 			Debug.Log($"Load scene {sceneInput.SceneName} asynchronously with a {sceneInput.LoadSceneMode} mode");
 
-			AsyncOperation loadOperation = _sceneManager.LoadSceneAsync(sceneInput.SceneName, sceneInput.LoadSceneMode);
+			AsyncOperation loadOperation = NTProxiesProvider.SceneManager.LoadSceneAsync(sceneInput.SceneName, sceneInput.LoadSceneMode);
 
 			if(ProgressHandler == null)
 			{

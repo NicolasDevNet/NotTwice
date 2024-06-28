@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using NotTwice.Proxies.Runtime;
 using NotTwice.Scene.Runtime.Abstract;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using System;
@@ -43,7 +44,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 			ValidateSceneName(sceneName);
 
-			AsyncOperation loadOperation = _sceneManager.UnloadSceneAsync(sceneName);
+			AsyncOperation loadOperation = NTProxiesProvider.SceneManager.UnloadSceneAsync(sceneName);
 
 			if (ProgressHandler == null)
 			{

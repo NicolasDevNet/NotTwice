@@ -27,7 +27,7 @@ namespace NotTwice.Scene.Runtime.Serializables
 
 		private DropdownList<LoadSceneMode> GetLoadSceneModes()
 		{
-			return Constants.LoadSceneModes;
+			return NTConstants.LoadSceneModes;
 		}
 	}
 }

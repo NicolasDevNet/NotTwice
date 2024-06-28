@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using NotTwice.Proxies.Runtime;
 using NotTwice.Scene.Runtime.Abstract;
 using NotTwice.Scene.Runtime.Serializables;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
@@ -109,7 +110,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 			ValidateSceneInput(TransitionScene);
 
-			PreviousScene = _sceneManager.GetActiveScene().name;
+			PreviousScene = NTProxiesProvider.SceneManager.GetActiveScene().name;
 
 			TargetScene = sceneInput.SceneName;
 
@@ -121,7 +122,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 			Debug.Log($"Load transition scene {TransitionScene.SceneName} asynchronously with a {TransitionScene.LoadSceneMode} mode");
 
 			//Loading transition scene
-			await _sceneManager.LoadSceneAsync(TransitionScene.SceneName, TransitionScene.LoadSceneMode);
+			await NTProxiesProvider.SceneManager.LoadSceneAsync(TransitionScene.SceneName, TransitionScene.LoadSceneMode);
 		}
 
 		/// <summary>
@@ -131,7 +132,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		{
 			Debug.Log($"Load scene {TargetScene} asynchronously with a {LoadSceneMode.Single} mode");
 
-			AsyncOperation loadOperation = _sceneManager.LoadSceneAsync(TargetScene, LoadSceneMode.Single);
+			AsyncOperation loadOperation = NTProxiesProvider.SceneManager.LoadSceneAsync(TargetScene, LoadSceneMode.Single);
 
 			TargetScene = string.Empty;
 			PreviousScene = string.Empty;
@@ -182,14 +183,14 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 		private void RemoveListeners()
 		{
-			_sceneManager.RemoveSceneLoadedEvent(OnTransitionSceneLoaded);
-			_sceneManager.RemoveSceneUnloadedEvent(OnPreviousSceneUnloaded);
+            NTProxiesProvider.SceneManager.RemoveSceneLoadedEvent(OnTransitionSceneLoaded);
+            NTProxiesProvider.SceneManager.RemoveSceneUnloadedEvent(OnPreviousSceneUnloaded);
 		}
 
 		private void AddListeners()
 		{
-			_sceneManager.AddSceneLoadedEvent(OnTransitionSceneLoaded);
-			_sceneManager.AddSceneUnloadedEvent(OnPreviousSceneUnloaded);
+            NTProxiesProvider.SceneManager.AddSceneLoadedEvent(OnTransitionSceneLoaded);
+            NTProxiesProvider.SceneManager.AddSceneUnloadedEvent(OnPreviousSceneUnloaded);
 		}
 	}
 }
