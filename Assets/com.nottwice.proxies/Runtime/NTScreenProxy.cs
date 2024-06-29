@@ -259,7 +259,7 @@ namespace NotTwice.Proxies.Runtime
         /// </summary>
         public void SetResolution(int width, int height, FullScreenMode fullscreenMode)
         {
-            Screen.SetResolution(width, height, fullscreenMode, 0);
+            Screen.SetResolution(width, height, fullscreenMode);
         }
 
         /// <summary>
@@ -275,7 +275,7 @@ namespace NotTwice.Proxies.Runtime
         /// </summary>
         public void SetResolution(int width, int height, bool fullscreen)
         {
-            Screen.SetResolution(width, height, fullscreen, 0);
+            Screen.SetResolution(width, height, fullscreen);
         }
     }
 }
