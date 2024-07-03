@@ -160,5 +160,27 @@ namespace NotTwice.Proxies.Runtime
                 _sceneManagerInternal = value;
             }
         }
+
+        private static INTQualitySettings _qualitySettingsInternal;
+
+        /// <summary>
+        /// Static instance of an interface implementation <see cref="INTQualitySettings"/>.
+        /// </summary>
+        public static INTQualitySettings QualitySettings
+        {
+            get
+            {
+                if (_qualitySettingsInternal == null)
+                {
+                    _qualitySettingsInternal = new NTQualitySettingsProxy();
+                }
+
+                return _qualitySettingsInternal;
+            }
+            set
+            {
+                _qualitySettingsInternal = value;
+            }
+        }
     }
 }
