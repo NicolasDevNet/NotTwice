@@ -1,0 +1,23 @@
+{
+  "name": "com.nottwice.patterns",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "displayName": "NotTwice Patterns",
+  "description": "NotTwice Patterns fournit des objets scriptables qui donnent accès à différentes implémentations de patterns connus sous la forme d'objets scriptables",
+  "keywords": [
+    "pooling",
+    "memory",
+    "scriptable",
+    "commands"
+  ],
+  "author": {
+    "name": "NotTwice, NFO."
+  },
+  "dependencies": {
+    "com.nottwice.events": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events",
+    "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+  }
+}

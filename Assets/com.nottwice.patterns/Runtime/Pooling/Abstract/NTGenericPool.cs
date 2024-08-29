@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace NotTwice.Pooling.Runtime.Abstract
+namespace NotTwice.Patterns.Pooling.Runtime.Abstract
 {
     /// <summary>
     /// Base class for a pool that optimises memory usage when creating/retrieving object instances.
@@ -27,7 +27,7 @@ namespace NotTwice.Pooling.Runtime.Abstract
         /// Prefab used to create the pool elements
         /// </summary>
         [Tooltip("Prefab used to create the pool elements")]
-        [Required]
+        [Expandable, Required]
         [ShowIf(nameof(_dontUseFactory))]
         public U Prefab;
 
@@ -35,7 +35,7 @@ namespace NotTwice.Pooling.Runtime.Abstract
         /// Prefab used to create the pool elements
         /// </summary>
         [Tooltip("Prefab used to create the pool elements")]
-        [Required]
+        [Expandable, Required]
         [ShowIf(nameof(Usefactory))]
         public NTGenericFactory<U> Factory;
 

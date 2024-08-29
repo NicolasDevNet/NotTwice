@@ -1,7 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
 
-namespace NotTwice.Pooling.Runtime.Abstract
+namespace NotTwice.Patterns.Pooling.Runtime.Abstract
 {
     /// <summary>
     /// Base class for a factory, which allows you to create custom instances of an object using the <see cref="Create"/> method.

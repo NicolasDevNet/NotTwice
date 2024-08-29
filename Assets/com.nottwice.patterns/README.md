@@ -1,10 +1,7 @@
-# NotTwice Pooling
+# NotTwice Patterns
 
 ## Description
-Welcome to **NotTwice Pooling**, an open-source Library which allows you to better manage the creation or reuse of instances that you create during the lifetime of a game.
-
-## Usage
-To use this package, you need to create a pool in your project that inherits from NTGenericPool or a factory that inherits from NTGenericFactory. In the case of the pool, remember to use the initialization method when loading the scene. Then simply call the Get method to retrieve an instance or Release to free it.
+Welcome to **NotTwice Patterns**, an open-source Library which gives access to different implementations of known patterns in the form of scriptable objects
 
 ## Installation
 To install this package, use the UPM package addition via Unity:
