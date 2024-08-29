@@ -6,6 +6,7 @@ using NotTwice.ScriptableObjects.Runtime.Collections;
 using NotTwice.Patterns.Commands.Runtime.Abstract;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
+using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 
 namespace NotTwice.Patterns.Commands.Runtime
 {
@@ -119,6 +120,58 @@ namespace NotTwice.Patterns.Commands.Runtime
 
         #endregion
 
+        #region Sync with name
+
+        public void ExecuteCommand<T>(string commandName)
+            where T : NTBaseCommand
+        {
+            NTBaseCommand command = FindCommand<T>(commandName);
+
+            ExecuteCommandInternal(command);
+        }
+
+        #endregion
+
+        #region Async with name
+
+        public async UniTask ExecuteCommandAsync<T>(string commandName)
+            where T : NTBaseCommand
+        {
+            NTBaseCommand command = FindCommand<T>(commandName);
+
+            await ExecuteCommandInternalAsync(command);
+        }
+
+        #endregion
+
+        #region Sync with name
+
+        public void ExecuteCommand<T>(NTStringVariable commandName)
+            where T : NTBaseCommand
+        {
+            EnsureStringVariableNameIsValid(commandName);
+
+            NTBaseCommand command = FindCommand<T>(commandName.Value);
+
+            ExecuteCommandInternal(command);
+        }
+
+        #endregion
+
+        #region Async with name
+
+        public async UniTask ExecuteCommandAsync<T>(NTStringVariable commandName)
+            where T : NTBaseCommand
+        {
+            EnsureStringVariableNameIsValid(commandName);
+
+            NTBaseCommand command = FindCommand<T>(commandName.Value);
+
+            await ExecuteCommandInternalAsync(command);
+        }
+
+        #endregion
+
         #region Tools
 
         private void ExecuteCommandInternal(NTBaseCommand command, params object[] args)
@@ -184,7 +237,7 @@ namespace NotTwice.Patterns.Commands.Runtime
             commandName = args.OfType<string>()
                       .FirstOrDefault(arg => arg.Contains(CommandNamePrefix));
 
-            return string.IsNullOrEmpty(commandName);
+            return string.IsNullOrEmpty(commandName.Split(CommandNamePrefix)[1]);
         }
 
         private T FindCommandFromArgs<T>(object[] args)
@@ -219,6 +272,16 @@ namespace NotTwice.Patterns.Commands.Runtime
 
             if (parsedCommand == null)
                 throw new Exception($"The command supplied is not valid for {typeof(T).Name} execution");
+        }
+
+        public void EnsureStringVariableNameIsValid(NTStringVariable commandName)
+        {
+            if(commandName != null)
+            {
+                return;
+            }
+
+            throw new ArgumentNullException(nameof(commandName));
         }
 
         #endregion
