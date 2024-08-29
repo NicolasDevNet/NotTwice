@@ -5,12 +5,14 @@ Welcome to **NotTwice Patterns**, an open-source Library which gives access to d
 
 ## Installation
 To install this package, use the UPM package addition via Unity:
-https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.pooling
+https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.patterns
 
 ## Dependencies
 
 - "com.nottwice.events": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events"
 - "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+- "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects"
+- "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
 
 ## Contribution
 [Nicolas FOUQUE](https://nfodevfreelance.fr/)
