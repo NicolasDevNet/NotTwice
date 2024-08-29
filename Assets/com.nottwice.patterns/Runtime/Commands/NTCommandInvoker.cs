@@ -7,6 +7,7 @@ using NotTwice.Patterns.Commands.Runtime.Abstract;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
 using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
+using Assets.com.nottwice.patterns.Runtime.Commands;
 
 namespace NotTwice.Patterns.Commands.Runtime
 {
@@ -23,7 +24,7 @@ namespace NotTwice.Patterns.Commands.Runtime
         /// </summary>
         [Tooltip("DataSet of commands used to search for the commands to be used by this invoker")]
         [Expandable ,Required]
-        public NTScriptableDataSet<NTBaseCommand> Commands;
+        public NTCommandsDataSet Commands;
 
         /// <summary>
         /// Prefix used to search for the name of the command in the arguments passed as parameters to the invoker
@@ -125,7 +126,7 @@ namespace NotTwice.Patterns.Commands.Runtime
         public void ExecuteCommand<T>(string commandName)
             where T : NTBaseCommand
         {
-            NTBaseCommand command = FindCommand<T>(commandName);
+            NTBaseCommand command = Commands.FindCommand<T>(commandName);
 
             ExecuteCommandInternal(command);
         }
@@ -137,7 +138,7 @@ namespace NotTwice.Patterns.Commands.Runtime
         public async UniTask ExecuteCommandAsync<T>(string commandName)
             where T : NTBaseCommand
         {
-            NTBaseCommand command = FindCommand<T>(commandName);
+            NTBaseCommand command = Commands.FindCommand<T>(commandName);
 
             await ExecuteCommandInternalAsync(command);
         }
@@ -151,7 +152,7 @@ namespace NotTwice.Patterns.Commands.Runtime
         {
             EnsureStringVariableNameIsValid(commandName);
 
-            NTBaseCommand command = FindCommand<T>(commandName.Value);
+            NTBaseCommand command = Commands.FindCommand<T>(commandName.Value);
 
             ExecuteCommandInternal(command);
         }
@@ -165,7 +166,7 @@ namespace NotTwice.Patterns.Commands.Runtime
         {
             EnsureStringVariableNameIsValid(commandName);
 
-            NTBaseCommand command = FindCommand<T>(commandName.Value);
+            NTBaseCommand command = Commands.FindCommand<T>(commandName.Value);
 
             await ExecuteCommandInternalAsync(command);
         }
@@ -248,18 +249,7 @@ namespace NotTwice.Patterns.Commands.Runtime
                 throw new Exception($"Impossible to deduce the name of the command from the arguments supplied, prefix set: {CommandNamePrefix}");
             }
 
-            return FindCommand<T>(commandName);
-        }
-
-        private T FindCommand<T>(string commandName = null)
-            where T : NTBaseCommand
-        {
-            if(string.IsNullOrEmpty(commandName))
-            {
-                return Commands.DataSet.Find(p => p is T) as T;
-            }
-
-            return Commands.DataSet.Find(p => p.Name == commandName) as T;
+            return Commands.FindCommand<T>(commandName);
         }
 
         private void ValidateAndParseCommand<T>(NTBaseCommand command, out T parsedCommand)
