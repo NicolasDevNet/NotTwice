@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using NotTwice.ScriptableObjects.Runtime.Collections;
 using NotTwice.Patterns.Commands.Runtime.Abstract;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
@@ -12,10 +11,11 @@ using Assets.com.nottwice.patterns.Runtime.Commands;
 namespace NotTwice.Patterns.Commands.Runtime
 {
     /// <summary>
-    /// Scriptable class used to execute scriptable commands created upstream and entered in the data set <see cref="Commands"/>.
+    /// Component class used to execute scriptable commands created upstream and entered in the data set <see cref="Commands"/>.
     /// </summary>
-    [CreateAssetMenu(fileName = "CommandInvoker", menuName = "NotTwice/Patterns/Commands/CommandInvoker")]
-    public class NTCommandInvoker : ScriptableObject
+    [AddComponentMenu("NotTwice/Patterns/Commands/CommandInvoker")]
+    [DisallowMultipleComponent]
+    public class NTCommandInvoker : MonoBehaviour
     {
         #region Fields
 
@@ -32,32 +32,22 @@ namespace NotTwice.Patterns.Commands.Runtime
         [Tooltip("Prefix used to search for the name of the command in the arguments passed as parameters to the invoker")]
         public string CommandNamePrefix = "name:";
 
-        private Stack<NTBaseCommand> _history = new Stack<NTBaseCommand>();
-
         #endregion
 
         #region Properties
 
-        #endregion
+        public NTCommandInvoker Instance { get; private set; }
 
-        public void Initialize()
-        {
-            _history = new Stack<NTBaseCommand>();
-        }
-
-        #region Unity messages
-
-        protected virtual void OnEnable()
-        {
-            _history = new Stack<NTBaseCommand>();
-        }
-
-        protected virtual void OnDisable()
-        {
-            _history = new Stack<NTBaseCommand>();
-        }
+        private Stack<NTBaseCommand> _history = new Stack<NTBaseCommand>();
 
         #endregion
+
+        protected virtual void Awake()
+        {
+            _history = new Stack<NTBaseCommand>();
+
+            Instance = this;
+        }
 
         #region Sync with reference provided
 
