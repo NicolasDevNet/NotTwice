@@ -13,6 +13,7 @@ https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.patterns
 - "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
 - "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects"
 - "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+- "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts"
 
 ## Contribution
 [Nicolas FOUQUE](https://nfodevfreelance.fr/)
