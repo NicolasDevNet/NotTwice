@@ -10,7 +10,7 @@ namespace NotTwice.Events.Runtime.Serializables.Abstract
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <typeparam name="U"></typeparam>
-	public abstract class NTGenericEventTypeSwitcher<T, U>
+	public abstract class NTGenericEventTypeSwitcher<T, U> : MonoBehaviour
 		where T :  NTGenericGameEvent<T, U>
 	{
 		/// <summary>
