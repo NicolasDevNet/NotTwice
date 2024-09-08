@@ -9,10 +9,12 @@ namespace NotTwice.Patterns.DependancyRegistration.Runtime
 	{
 		private Dictionary<Type, ScriptableObject> _services = new Dictionary<Type, ScriptableObject>();
 
-		public void RegisterService<T>(T service) where T : ScriptableObject
+		public void RegisterService(ScriptableObject service)
 		{
-			_services[typeof(T)] = service;
-			Debug.Log($"Register service of type {nameof(T)} with instance {service.name}");
+			Type type = service.GetType();
+
+			_services[type] = service;
+			Debug.Log($"Register service of type {type.Name} with instance {service.name}");
 		}
 
 		public T GetService<T>() where T : class
