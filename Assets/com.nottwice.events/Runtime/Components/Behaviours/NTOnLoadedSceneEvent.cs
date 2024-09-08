@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NotTwice.Events.Runtime.Components.Behaviours
 {
-	[AddComponentMenu("NotTwice/Events/Behaviours/OnUnloadSceneEvent")]
+	[AddComponentMenu("NotTwice/Events/Behaviours/OnLoadedSceneEvent")]
 	public class NTOnLoadedSceneEvent : NTGenericEventTypeSwitcher<NTSceneGameEvent, Scene>
 	{
 		private INTSceneManager _sceneManagerInternal;
