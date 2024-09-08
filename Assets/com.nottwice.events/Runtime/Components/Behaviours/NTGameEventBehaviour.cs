@@ -1,5 +1,6 @@
 ﻿using NotTwice.Events.Runtime.Components.Abstract;
 using NotTwice.Events.Runtime.ScriptableObjects.Events;
+using NotTwice.Events.Runtime.Serializables.Abstract;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,14 +10,8 @@ namespace NotTwice.Events.Runtime.Components.Behaviours
     /// Unity component linked to an invocable Unity event
     /// </summary>
     [AddComponentMenu("NotTwice/Events/Behaviours/GameEventBehaviour")]
-    public class NTGameEventBehaviour : NTBaseEventBehaviour<NTGameEvent, UnityEvent>
+    public class NTGameEventBehaviour : NTBaseEventTypeSwitcher<NTGameEvent>
     {
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        public override void Raise()
-        {
-            Event?.Raise();
-        }
+
     }
 }

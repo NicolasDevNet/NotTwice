@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace NotTwice.Patterns.State.Runtime.Abstract
 {
-    public abstract class NTState : ScriptableObject, INTState
+	public abstract class NTState : ScriptableObject, INTState
     {
         public NTStateDataSet ComparareDataSet;
 

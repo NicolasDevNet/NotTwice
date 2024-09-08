@@ -10,7 +10,7 @@ namespace NotTwice.Events.Runtime.Serializables.Abstract
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <typeparam name="U"></typeparam>
-	public abstract class NTBaseEventTypeSwitcher<T>
+	public abstract class NTBaseEventTypeSwitcher<T> : MonoBehaviour
 		where T : NTBaseGameEvent<T, UnityEvent>
 	{
 		/// <summary>
@@ -41,10 +41,12 @@ namespace NotTwice.Events.Runtime.Serializables.Abstract
 		{
 			if(UseUnityEvent)
 			{
+				Debug.Log($"UnityEvent triggered from  {name}");
 				UnityEvent?.Invoke();
 			}
 			else
 			{
+				Debug.Log($"GameEvent: {GameEvent.name} triggered from {name}");
 				GameEvent?.Raise();
 			}
 		}

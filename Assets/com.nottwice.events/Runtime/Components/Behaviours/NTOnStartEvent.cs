@@ -11,7 +11,7 @@ namespace NotTwice.Events.Runtime.Components.Behaviours
     {
 		public void Start()
 		{
-			Debug.Log($"Start for {name} with event {Event.name}");
+			Debug.Log($"Start for {name} with event switcher event: ");
 			Raise();
 		}
 	}

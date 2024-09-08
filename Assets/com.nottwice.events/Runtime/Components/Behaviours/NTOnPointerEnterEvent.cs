@@ -2,6 +2,7 @@
 using UnityEngine;
 using NotTwice.Events.Runtime.Components.Abstract;
 using NotTwice.Events.Runtime.ScriptableObjects.Events;
+using NotTwice.Events.Runtime.Serializables.Abstract;
 
 namespace NotTwice.Events.Runtime.Components.Behaviours
 {
@@ -9,7 +10,7 @@ namespace NotTwice.Events.Runtime.Components.Behaviours
 	/// Component to trigger a GameEvent when a PointerEnter event is detected.
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/Behaviours/OnPointerEnterEvent")]
-	public class NTOnPointerEnterEvent : NTGenericEventBehaviour<NTPointerDataGameEvent, PointerEventData>, IPointerEnterHandler
+	public class NTOnPointerEnterEvent : NTGenericEventTypeSwitcher<NTPointerDataGameEvent, PointerEventData>, IPointerEnterHandler
 	{
 		public void OnPointerEnter(PointerEventData eventData)
 		{

@@ -1,7 +1,7 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 using NotTwice.Events.Runtime.ScriptableObjects.Events;
-using NotTwice.Events.Runtime.Components.Abstract;
+using NotTwice.Events.Runtime.Serializables.Abstract;
 
 namespace NotTwice.Events.Runtime.Components.Behaviours
 {
@@ -9,7 +9,7 @@ namespace NotTwice.Events.Runtime.Components.Behaviours
 	/// Component to trigger a GameEvent when a PointerExit event is detected.
 	/// </summary>
 	[AddComponentMenu("NotTwice/Events/Behaviours/OnPointerExitEvent")]
-	public class NTOnPointerExitEvent : NTGenericEventBehaviour<NTPointerDataGameEvent, PointerEventData>, IPointerExitHandler
+	public class NTOnPointerExitEvent : NTGenericEventTypeSwitcher<NTPointerDataGameEvent, PointerEventData>, IPointerExitHandler
 	{
 		public void OnPointerExit(PointerEventData eventData)
 		{

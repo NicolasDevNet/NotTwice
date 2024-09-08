@@ -14,6 +14,7 @@ https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.events
 
 - "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts"
 - "com.nottwice.scriptableobjects": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.scriptableobjects"
+- "com.nottwice.proxies": "https://github.com/NicolasDevNet/NotTwice.git?path=Assets/com.nottwice.proxies"
 - "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
 - "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
 
