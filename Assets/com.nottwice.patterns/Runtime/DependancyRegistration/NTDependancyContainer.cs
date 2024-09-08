@@ -12,6 +12,7 @@ namespace NotTwice.Patterns.DependancyRegistration.Runtime
 		public void RegisterService<T>(T service) where T : ScriptableObject
 		{
 			_services[typeof(T)] = service;
+			Debug.Log($"Register service of type {nameof(T)} with instance {service.name}");
 		}
 
 		public T GetService<T>() where T : class
