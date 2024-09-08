@@ -481,10 +481,5 @@ namespace NotTwice.Proxies.Runtime
         {
             return QualitySettings.GetQualitySettings();
         }
-
-        public void GetAllRenderPipelineAssetsForPlatform(string buildTargetGroupName, ref List<RenderPipelineAsset> renderPipelineAssets)
-        {
-            QualitySettings.GetAllRenderPipelineAssetsForPlatform(buildTargetGroupName, ref renderPipelineAssets);
-        }
     }
 }
