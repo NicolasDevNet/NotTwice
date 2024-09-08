@@ -9,30 +9,19 @@ namespace NotTwice.Patterns.DependancyRegistration.Runtime
 	{
 		private Dictionary<Type, ScriptableObject> _services = new Dictionary<Type, ScriptableObject>();
 
-		// Enregistrer un service dans le conteneur
 		public void RegisterService<T>(T service) where T : ScriptableObject
 		{
-			Type type = typeof(T);
-
-			if (!_services.ContainsKey(type))
-			{
-				_services[type] = service;
-			}
+			_services[typeof(T)] = service;
 		}
 
-		// Récupérer un service depuis le conteneur
-		public T GetService<T>() where T : ScriptableObject
+		public T GetService<T>() where T : class
 		{
-			Type type = typeof(T);
-
-			if (_services.ContainsKey(type))
+			if (_services.TryGetValue(typeof(T), out var service))
 			{
-				return _services[type] as T;
+				return service as T;
 			}
 
-			Debug.LogError($"Service {type} not found.");
-
-			return null;
+			throw new System.Exception($"Service of type {typeof(T)} not found");
 		}
 
 		public void Clear()

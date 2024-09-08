@@ -1,5 +1,4 @@
-﻿using NotTwice.Patterns.State.Runtime.Abstract;
-using UniRx;
+﻿using UniRx;
 
 namespace NotTwice.Patterns.State.Runtime.Abstract
 {
