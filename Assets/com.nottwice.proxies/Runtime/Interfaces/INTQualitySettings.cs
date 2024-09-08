@@ -142,8 +142,5 @@ namespace NotTwice.Proxies.Runtime.Interfaces
 
         // Get current quality settings object.
         Object GetQualitySettings();
-
-        // Get all render pipeline assets for a specific platform and store them in a list.
-        void GetAllRenderPipelineAssetsForPlatform(string buildTargetGroupName, ref List<RenderPipelineAsset> renderPipelineAssets);
     }
 }
