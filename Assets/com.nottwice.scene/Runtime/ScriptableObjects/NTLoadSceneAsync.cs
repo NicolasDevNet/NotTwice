@@ -48,6 +48,16 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		}
 
 		/// <summary>
+		/// Method for loading a scene asynchronously, with automatic loading of the targeted scene and possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
+		/// <para>The loading mode for this method is <see cref="LoadSceneMode.Single"/> by default</para>
+		/// </summary>
+		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
+		public override void ExecuteAsync()
+		{
+			ExecuteAsync(TargetScene.Value, LoadSceneMode.Single);
+		}
+
+		/// <summary>
 		/// Method for loading a scene asynchronously, possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
 		/// </summary>
 		/// <param name="sceneName">Scene name required to load the scene</param>

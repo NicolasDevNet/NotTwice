@@ -35,12 +35,6 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		public string PreviousScene;
 
 		/// <summary>
-		/// Previous scene to be loaded
-		/// </summary>
-		[ReadOnly, Tooltip("Previous scene to be loaded")]
-		public string TargetScene;
-
-		/// <summary>
 		/// Indicator showing that the transition scene is loaded
 		/// </summary>
 		[ReadOnly, Tooltip("Indicator showing that the transition scene is loaded")]
@@ -82,6 +76,16 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		public override void ExecuteAsync(string sceneName)
 		{
 			ExecuteAsync(sceneName, LoadSceneMode.Single);
+		}
+
+		/// <summary>
+		/// Method for loading a scene asynchronously, with automatic loading of the targeted scene and possibly taking into account an operation progress manager <see cref="IProgress{T}"/>.
+		/// <para>The loading mode for this method is <see cref="LoadSceneMode.Single"/> by default</para>
+		/// </summary>
+		/// <exception cref="ArgumentNullException">Exception lifted if information not supplied</exception>
+		public override void ExecuteAsync()
+		{
+			ExecuteAsync(TargetScene.Value, LoadSceneMode.Single);
 		}
 
 		/// <summary>

@@ -1,6 +1,9 @@
 ﻿
+using NaughtyAttributes;
 using NotTwice.Scene.Runtime.Serializables;
+using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
 using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace NotTwice.Scene.Runtime.Abstract
@@ -10,6 +13,13 @@ namespace NotTwice.Scene.Runtime.Abstract
 	/// </summary>
 	public abstract class NTBaseLoadScene : NTBaseSceneHandler
 	{
+		/// <summary>
+		/// Previous scene to be loaded
+		/// </summary>
+		[ReadOnly, Tooltip("Target scene to be loaded")]
+		[Expandable]
+		public NTStringVariable TargetScene;
+
 		/// <summary>
 		/// Method for loading a scene asynchronously
 		/// </summary>
@@ -22,6 +32,11 @@ namespace NotTwice.Scene.Runtime.Abstract
 		/// </summary>
 		/// <param name="sceneInput">Scene information required for loading</param>
 		public abstract void ExecuteAsync(NTSerializableSceneInput sceneInput);
+
+		/// <summary>
+		/// Method for loading a scene asynchronously with provided target scene variable
+		/// </summary>
+		public abstract void ExecuteAsync();
 
 		/// <summary>
 		/// Method for checking the validity of scene input
