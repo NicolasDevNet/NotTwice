@@ -116,7 +116,7 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 
 			PreviousScene = NTProxiesProvider.SceneManager.GetActiveScene().name;
 
-			TargetScene = sceneInput.SceneName;
+			TargetScene.Value = sceneInput.SceneName;
 
 			if(AutoLoadTargetScene)
 			{
@@ -136,9 +136,9 @@ namespace NotTwice.Scene.Runtime.ScriptableObjects
 		{
 			Debug.Log($"Load scene {TargetScene} asynchronously with a {LoadSceneMode.Single} mode");
 
-			AsyncOperation loadOperation = NTProxiesProvider.SceneManager.LoadSceneAsync(TargetScene, LoadSceneMode.Single);
+			AsyncOperation loadOperation = NTProxiesProvider.SceneManager.LoadSceneAsync(TargetScene.Value, LoadSceneMode.Single);
 
-			TargetScene = string.Empty;
+			TargetScene.Value = string.Empty;
 			PreviousScene = string.Empty;
 
 			if (ProgressHandler == null)
