@@ -1,88 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using NotTwice.Patterns.Commands.Runtime.Abstract;
 using Cysharp.Threading.Tasks;
 using NaughtyAttributes;
-using NotTwice.ScriptableObjects.Runtime.Variables.Typed;
-using Assets.com.nottwice.patterns.Runtime.Commands;
+using NotTwice.Patterns.DependancyRegistration.Runtime;
 
 namespace NotTwice.Patterns.Commands.Runtime
 {
-	/// <summary>
-	/// Component class used to execute scriptable commands created upstream and entered in the data set <see cref="Commands"/>.
-	/// </summary>
-	[CreateAssetMenu(fileName = "CommandInvoker", menuName = "NotTwice/Patterns/Commands/CommandInvoker")]
+    /// <summary>
+    /// Component class used to execute scriptable commands created upstream and entered in the data set <see cref="Commands"/>.
+    /// </summary>
+    [CreateAssetMenu(fileName = "CommandInvoker", menuName = "NotTwice/Patterns/Commands/CommandInvoker")]
 	public class NTCommandInvoker : ScriptableObject, INTCommandInvoker
 	{
 		#region Fields
 
-		/// <summary>
-		/// DataSet of commands used to search for the commands to be used by this invoker
-		/// </summary>
-		[Tooltip("DataSet of commands used to search for the commands to be used by this invoker")]
-		[Expandable, Required]
-		public NTCommandsDataSet Commands;
+		[Required, Expandable, Tooltip("Dependency container to be used for commands")]
+		public NTDependancyContainer Container;
 
-		/// <summary>
-		/// Prefix used to search for the name of the command in the arguments passed as parameters to the invoker
-		/// </summary>
-		[Tooltip("Prefix used to search for the name of the command in the arguments passed as parameters to the invoker")]
-		public string CommandNamePrefix = "name:";
+		[MinValue(1), Tooltip("Defines the number of orders that will be kept in the history")]
+		public int MaxCommandHistory;
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Properties
 
-		private Stack<NTBaseCommand> _history = new Stack<NTBaseCommand>();
+        private Stack<NTBaseCommand> _history = new Stack<NTBaseCommand>();
 
 		#endregion
 
-		protected virtual void Awake()
+		public void Initialize()
 		{
 			_history = new Stack<NTBaseCommand>();
 		}
-
-		#region Sync with reference provided
-
-		public void ExecuteCommand(NTBaseCommand command)
-		{
-			ExecuteCommandInternal(command);
-		}
-
-		public void UndoCommand()
-		{
-			UndoCommandInternal();
-		}
-
-		#endregion
-
-		#region Async with reference provided
-
-		public async UniTask ExecuteCommandAsync(NTBaseCommand command)
-		{
-			await ExecuteCommandInternalAsync(command);
-		}
-
-		public async UniTask UndoCommandAsync()
-		{
-			await UndoCommandInternalAsync();
-		}
-
-		#endregion
 
 		#region Sync with params
 
 		public void ExecuteCommand<T>(params object[] args)
 			where T : NTBaseCommand
 		{
-			NTBaseCommand command = FindCommandFromArgs<T>(args);
-
-			ExecuteCommandInternal(command, args);
+			ExecuteCommandInternal(CreateCommandInstance<T>(), args);
 		}
 
-		public void UndoCommand<T>(params object[] args)
+		public void UndoCommand(params object[] args)
 		{
 			UndoCommandInternal(args);
 		}
@@ -94,66 +55,12 @@ namespace NotTwice.Patterns.Commands.Runtime
 		public async UniTask ExecuteCommandAsync<T>(params object[] args)
 			where T : NTBaseCommand
 		{
-			NTBaseCommand command = FindCommandFromArgs<T>(args);
-
-			await ExecuteCommandInternalAsync(command, args);
+			await ExecuteCommandInternalAsync(CreateCommandInstance<T>(), args);
 		}
 
-		public async UniTask UndoCommandAsync<T>(params object[] args)
+		public async UniTask UndoCommandAsync(params object[] args)
 		{
 			await UndoCommandInternalAsync(args);
-		}
-
-		#endregion
-
-		#region Sync with name
-
-		public void ExecuteCommand<T>(string commandName)
-			where T : NTBaseCommand
-		{
-			NTBaseCommand command = Commands.FindCommand<T>(commandName);
-
-			ExecuteCommandInternal(command);
-		}
-
-		#endregion
-
-		#region Async with name
-
-		public async UniTask ExecuteCommandAsync<T>(string commandName)
-			where T : NTBaseCommand
-		{
-			NTBaseCommand command = Commands.FindCommand<T>(commandName);
-
-			await ExecuteCommandInternalAsync(command);
-		}
-
-		#endregion
-
-		#region Sync with name
-
-		public void ExecuteCommand<T>(NTStringVariable commandName)
-			where T : NTBaseCommand
-		{
-			EnsureStringVariableNameIsValid(commandName);
-
-			NTBaseCommand command = Commands.FindCommand<T>(commandName.Value);
-
-			ExecuteCommandInternal(command);
-		}
-
-		#endregion
-
-		#region Async with name
-
-		public async UniTask ExecuteCommandAsync<T>(NTStringVariable commandName)
-			where T : NTBaseCommand
-		{
-			EnsureStringVariableNameIsValid(commandName);
-
-			NTBaseCommand command = Commands.FindCommand<T>(commandName.Value);
-
-			await ExecuteCommandInternalAsync(command);
 		}
 
 		#endregion
@@ -162,9 +69,9 @@ namespace NotTwice.Patterns.Commands.Runtime
 
 		private void ExecuteCommandInternal(NTBaseCommand command, params object[] args)
 		{
-			ValidateAndParseCommand(command, out NTCommand parsedCommand);
+            NTCommand parsedCommand = command as NTCommand;
 
-			try
+            try
 			{
 				if (parsedCommand.CanExecute())
 				{
@@ -181,19 +88,22 @@ namespace NotTwice.Patterns.Commands.Runtime
 
 		private void UndoCommandInternal(params object[] args)
 		{
-			if (_history.TryPop(out NTBaseCommand command))
+			if (_history.TryPop(out NTBaseCommand command) && command is NTCommand parsedCommand)
 			{
-				ValidateAndParseCommand(command, out NTCommand parsedCommand);
-
 				parsedCommand.Undo(args);
 			}
 		}
 
 		private async UniTask ExecuteCommandInternalAsync(NTBaseCommand command, params object[] args)
 		{
-			ValidateAndParseCommand(command, out NTAsyncCommand parsedCommand);
+			NTAsyncCommand parsedCommand = command as NTAsyncCommand;
 
-			try
+            if (_history.Count >= MaxCommandHistory)
+            {
+                _history.Clear();
+            }
+
+            try
 			{
 				if (await parsedCommand.CanExecuteAsync())
 				{
@@ -210,54 +120,17 @@ namespace NotTwice.Patterns.Commands.Runtime
 
 		private async UniTask UndoCommandInternalAsync(params object[] args)
 		{
-			if (_history.TryPop(out NTBaseCommand command))
+			if (_history.TryPop(out NTBaseCommand command) && command is NTAsyncCommand parsedCommand)
 			{
-				ValidateAndParseCommand(command, out NTAsyncCommand parsedCommand);
-
 				await parsedCommand.UndoAsync(args);
 			}
 		}
 
-		private bool ReadCommandNameFromArgs(object[] args, out string commandName)
+		private T CreateCommandInstance<T>()
+            where T : NTBaseCommand
 		{
-			commandName = args.OfType<string>()
-					  .FirstOrDefault(arg => arg.Contains(CommandNamePrefix));
-
-			return string.IsNullOrEmpty(commandName.Split(CommandNamePrefix)[1]);
-		}
-
-		private T FindCommandFromArgs<T>(object[] args)
-			where T : NTBaseCommand
-		{
-			if (!ReadCommandNameFromArgs(args, out string commandName))
-			{
-				throw new Exception($"Impossible to deduce the name of the command from the arguments supplied, prefix set: {CommandNamePrefix}");
-			}
-
-			return Commands.FindCommand<T>(commandName);
-		}
-
-		private void ValidateAndParseCommand<T>(NTBaseCommand command, out T parsedCommand)
-			where T : NTBaseCommand
-		{
-			if (command == null || !Commands.DataSet.Contains(command))
-				throw new Exception("The command you want to run cannot be found.");
-
-			parsedCommand = command as T;
-
-			if (parsedCommand == null)
-				throw new Exception($"The command supplied is not valid for {typeof(T).Name} execution");
-		}
-
-		public void EnsureStringVariableNameIsValid(NTStringVariable commandName)
-		{
-			if (commandName != null)
-			{
-				return;
-			}
-
-			throw new ArgumentNullException(nameof(commandName));
-		}
+            return (T)Activator.CreateInstance(typeof(T), Container);
+        }
 
 		#endregion
 
@@ -270,7 +143,7 @@ namespace NotTwice.Patterns.Commands.Runtime
 		{
 			foreach (NTBaseCommand command in _history)
 			{
-				Debug.Log(command.name);
+				Debug.Log(command.GetType().Name);
 			}
 		}
 
