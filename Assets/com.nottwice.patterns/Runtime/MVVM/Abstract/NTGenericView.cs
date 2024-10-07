@@ -6,11 +6,9 @@ using System.Linq;
 
 namespace NotTwice.Patterns.MVVM.Runtime.Abstract
 {
-    public abstract class NTGenericView<TModel, TViewModelContract> : NTBaseView
+    public abstract class NTGenericView<TViewModelContract> : NTBaseView
         where TViewModelContract : INTViewModel
     {
-        public TModel Model;
-
         [Required, Expandable]
         public NTDependancyContainer Container;
 
@@ -21,7 +19,7 @@ namespace NotTwice.Patterns.MVVM.Runtime.Abstract
 			var viewModelType = FindConcreteViewModelType();
 
 			// Crée une instance du ViewModel concret avec les paramètres
-			ViewModel = (TViewModelContract)Activator.CreateInstance(viewModelType, Container, Model);
+			ViewModel = (TViewModelContract)Activator.CreateInstance(viewModelType, Container);
 
 			IsInitialized = true;
 		}
