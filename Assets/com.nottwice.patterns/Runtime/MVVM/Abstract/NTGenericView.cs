@@ -19,7 +19,7 @@ namespace NotTwice.Patterns.MVVM.Runtime.Abstract
 			var viewModelType = FindConcreteViewModelType();
 
 			// Crée une instance du ViewModel concret avec les paramètres
-			ViewModel = (TViewModelContract)Activator.CreateInstance(viewModelType, Container);
+			ViewModel = (TViewModelContract)Activator.CreateInstance(viewModelType, args: new object[] { Container });
 
 			IsInitialized = true;
 		}
