@@ -6,7 +6,11 @@ namespace NotTwice.Patterns.MVVM.Runtime.Abstract
     {
         protected readonly NTDependancyContainer Container;
 
-        public NTBaseViewModel(NTDependancyContainer container)
+		public NTBaseViewModel()
+		{
+		}
+
+		public NTBaseViewModel(NTDependancyContainer container)
         {
             Container = container;
         }
